@@ -1,0 +1,1 @@
+已经安装，重新安装请清空数据表并<br><br>清空install/install-config/install.json文件<br><br>（注意，不是删除！）<br>
