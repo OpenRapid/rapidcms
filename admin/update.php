@@ -55,7 +55,7 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
 
     <div>
         <div style="color:black;font-size: 20px;" class="mdui-typo">
-            <h2 style="font-weight: bold;">当前版本：V<?echo $data_index["version"];?></h2>
+            <h2 style="font-weight: bold;">当前版本：Dev.<?echo $data_index["version"];?></h2>
             <iframe src="https://onrjy.rth1.one/bbsversion.html" style="width:400px;height:50px" name="iframe_a"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>    
         <br>
 
