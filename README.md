@@ -1,5 +1,5 @@
 # RapidCMS文档
-![avatar](https://cdn.nlark.com/yuque/0/2023/png/21876185/1673934228149-7e1162d8-165e-4524-a070-01c4335d0138.png)
+![avatar](../../../../resource/runlogin.php?goto=http://localhost:5317/)
 <div style="background-color:rgba(181, 239, 242, 0.5);border-radius:4px;padding:10px;font-size:28px;">
 <ne-h1 style="margin-top:0;">
 <ne-heading-content>
