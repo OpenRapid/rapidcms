@@ -10,7 +10,7 @@
 <br>
 <ne-p style="margin-bottom:7.83px;display:block;"><ne-text style="font-size:22px;">在这里，你可以获取我们项目的最新消息</ne-text><span><br></span></ne-p>
 <ne-p><ne-text>本系统自Dev.1.0.5起</ne-text><ne-text></ne-text><b>兼容虚拟主机</b></ne-text><ne-text>，</ne-text><ne-text><b>旧版本</b></ne-text><ne-text>请使用</ne-text><ne-text><b>服务器</b></ne-text><ne-text>安装！</ne-text><span><br></span></ne-p>
-<ne-p><ne-text>官方文档：</ne-text><ne-text><b><a href="https://yuque.com/rapid/cms">点击反馈</a></b></ne-text><span><br></span></ne-p>
+<ne-p><ne-text>官方文档：</ne-text><ne-text><b><a href="https://yuque.com/rapid/cms">点击进入</a></b></ne-text><span><br></span></ne-p>
 </div>
 
 ------------
