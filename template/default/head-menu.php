@@ -4,6 +4,26 @@
         <span class="mdui-typo-title"><? echo $data_header["title"]; ?></span>
         <div class="mdui-toolbar-spacer"></div>
         <?php
+    function curPageURL() 
+    {
+      $pageURL = 'http';
+      if ($_SERVER["HTTPS"] == "on") 
+      {
+        $pageURL .= "s";
+      }
+      $pageURL .= "://";
+      if ($_SERVER["SERVER_PORT"] != "80") 
+      {
+        $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+      } 
+      else
+      {
+        $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+      }
+      return $pageURL;
+    }
+    ?>
+        <?php
         function encode($string = '', $skey = 'cxphp')
         {
             $strArr = str_split(base64_encode($string));
@@ -30,7 +50,7 @@
         }
         ?>
         <ul class="mdui-menu" id="logout-menu" style="transform-origin: 0px 100%">
-            <li class="mdui-menu-item"><a class="mdui-ripple" href="../../../../resource/logout.php">退出登录</a></li>
+            <li class="mdui-menu-item"><a class="mdui-ripple" href="../../../../resource/logout.php?goto=<?php  echo curPageURL(); ?>">退出登录</a></li>
 
         </ul>
     </div>

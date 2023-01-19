@@ -27,12 +27,12 @@ if ($data_json["lock"] == "install") {
 <body class=" mdui-theme-accent-indigo mdui-theme-primary-indigo mdui-text-color-white" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
     <div class="mdui-toolbar mdui-color-theme mdui-text-color-white">
 
-        <span class="mdui-typo-title">RapidCMS V<?echo $data_index["version"];?>安装</span>
+        <span class="mdui-typo-title">RapidCMS V<? echo $data_index["version"]; ?>安装</span>
         <div class="mdui-toolbar-spacer"></div>
     </div>
 
     <div class="mdui-container medium" style="margin:auto;text-align:center">
-        <div class=" mdui-text-color-theme mdui-typo-display-3">RapidCMS V<?echo $data_index["version"];?>安装</div>
+        <div class=" mdui-text-color-theme mdui-typo-display-3">RapidCMS V<? echo $data_index["version"]; ?>安装</div>
         <div class="mdui-text-color-black mdui-typo ">
             <br>
 
@@ -88,7 +88,7 @@ if ($data_json["lock"] == "install") {
                         $conb = mysqli_query($link, $sql2);
                         if ($conb) {
                             echo "<br>&nbsp;&nbsp;&nbsp;4、表 RapidCMSAdmin 创建成功";
-                            $passwordq=md5(sha1(md5($data["password"])));
+                            $passwordq = md5(sha1(md5($data["password"])));
                             $sqlx = "insert into `rapidcmsadmin` values('admin','{$passwordq}');";
                             $conc = mysqli_query($link, $sqlx);
                             if ($conc) {
@@ -112,25 +112,40 @@ if ($data_json["lock"] == "install") {
                                     $cone = mysqli_query($link, $sqlz);
                                     if ($cone) {
                                         echo "<br>&nbsp;&nbsp;&nbsp;7、表 RapidCMSCategory 创建成功";
-                                        $data1 = array();
-                                        $data1['lock'] = "install";
-                                        $json_string1 = json_encode($data1);
-                                        $filename1 = 'install-config/install.json';
-                                        $fp1 = fopen($filename1, "w");
-                                        $len1 = fwrite($fp1, $json_string1);
-                                        fclose($fp1);
-                                        echo "<br>&nbsp;&nbsp;&nbsp;8、锁定安装成功，解锁请清空install/install-config/install.json";
-                                        echo "<br>&nbsp;&nbsp;&nbsp;9、后台创建成功，后台地址" . $_SERVER['HTTP_HOST'] . "/admin";
-                                        echo '<script>setTimeout(`document.getElementById("nextButton").disabled="false"`, 1000 )</script>';
-                                    }else{
+                                        $sqlz1 = 'CREATE TABLE `rapidcmschat` (
+                                            `id` char(10) COLLATE utf8_unicode_ci PRIMARY KEY,
+                                            `people` char(100) COLLATE utf8_unicode_ci NOT NULL,
+                                            `content` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+                                            `goodnum` int(10) COLLATE utf8_unicode_ci NOT NULL,
+                                            `time` datetime NOT NULL,
+                                            `articleid` char(10) COLLATE utf8_unicode_ci NOT NULL
+                                          ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;';
+                                        $cone1 = mysqli_query($link, $sqlz1);
+                                        if ($cone1) {
+                                            echo "<br>&nbsp;&nbsp;&nbsp;8、表 RapidCMSChat 创建成功";
+
+                                            $data1 = array();
+                                            $data1['lock'] = "install";
+                                            $json_string1 = json_encode($data1);
+                                            $filename1 = 'install-config/install.json';
+                                            $fp1 = fopen($filename1, "w");
+                                            $len1 = fwrite($fp1, $json_string1);
+                                            fclose($fp1);
+                                            echo "<br>&nbsp;&nbsp;&nbsp;9、锁定安装成功，解锁请清空install/install-config/install.json";
+                                            echo "<br>&nbsp;&nbsp;&nbsp;10、后台创建成功，后台地址" . $_SERVER['HTTP_HOST'] . "/admin";
+                                            echo '<script>setTimeout(`document.getElementById("nextButton").disabled="false"`, 1000 )</script>';
+                                        } else {
+                                            echo "<br>&nbsp;&nbsp;&nbsp;8、表 RapidCMSChat 出现问题，请按照报错内容修改<br>&nbsp;&nbsp;&nbsp;";
+                                            echo mysqli_error($link);
+                                        }
+                                    } else {
                                         echo "<br>&nbsp;&nbsp;&nbsp;7、表 RapidCMSCategory 出现问题，请按照报错内容修改<br>&nbsp;&nbsp;&nbsp;";
                                         echo mysqli_error($link);
-                                    }    
-                                }else{
+                                    }
+                                } else {
                                     echo "<br>&nbsp;&nbsp;&nbsp;6、表 RapidCMSPage 出现问题，请按照报错内容修改<br>&nbsp;&nbsp;&nbsp;";
                                     echo mysqli_error($link);
-                                }               
-                             
+                                }
                             } else {
                                 echo "<br>&nbsp;&nbsp;&nbsp;5、表 RapidCMSAdmin 插入时出现问题，请按照报错内容修改<br>&nbsp;&nbsp;&nbsp;";
                                 echo mysqli_error($link);
@@ -158,7 +173,7 @@ if ($data_json["lock"] == "install") {
 
         <script>
             function NextStep() {
-window.location.href="../../../../../#";
+                window.location.href = "../../../../../#";
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.js"></script>

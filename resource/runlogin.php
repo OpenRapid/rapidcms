@@ -5,7 +5,12 @@ header("Content-type:text/html;charset=utf-8");
 $json_string = file_get_contents('../install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 $link = mysqli_connect($dataxxx['server'], $dataxxx['dbusername'], $dataxxx['dbpassword']);
-
+if($_GET["goto"]!="")
+{
+      $goto=$_GET["goto"];
+}else{
+      $goto="../../../../../../index.php";
+}
 function encode($string = '', $skey = 'cxphp')
 {
       $strArr = str_split(base64_encode($string));
@@ -25,7 +30,7 @@ if ($link) {
             $password = $_POST["password"];
             if ($name == "" || $password == "") {
                   echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "请填写正确的信息！" . "\"" . ")" . ";" . "</script>";
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . "../../../../index.php" . "\"" . "</script>";
+                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $goto . "\"" . "</script>";
                   exit;
             }
             $str = "select password from `rapidcmsuser` where username=" . "'" . "$name" . "'";
@@ -44,10 +49,10 @@ if ($link) {
                   setcookie("name", $name, time() + 3600000, '/');
                   sleep(2);
                   echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "登录成功！" . "\"" . ")" . ";" . "</script>";
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . "../../../../index.php" . "\"" . "</script>";
+                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $goto . "\"" . "</script>";
             } else {
                   echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "登录失败！" . "\"" . ")" . ";" . "</script>";
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . "../../../../index.php" . "\"" . "</script>";
+                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $goto. "\"" . "</script>";
             }
       }
 }
