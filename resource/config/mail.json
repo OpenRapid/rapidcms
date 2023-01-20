@@ -1,0 +1,8 @@
+{
+    "logonwithmail":"false",
+    "smtp":"",
+    "secure":"ssl",
+    "port":465,
+    "username":"",
+    "password":""
+}

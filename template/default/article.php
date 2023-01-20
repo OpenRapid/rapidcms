@@ -54,7 +54,7 @@
             echo ' <button onclick="document.getElementById(\'chaton\').style.zIndex=999999"  mdui-menu="{target: \'#chaton\'}" class="mdui-fab mdui-fab-fixed mdui-fab-extended mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">add</i><span>写评论</span></button>
             ';
         } else {
-            echo '<button class="mdui-fab mdui-fab-fixed mdui-fab-extended mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">add</i><span>请先登录</span></button>';
+            echo '<button onclick="document.getElementById(\'login\').style.zIndex=999999" mdui-dialog="{target: \'#login\'}" class="mdui-fab mdui-fab-fixed mdui-fab-extended mdui-ripple mdui-color-theme"><i class="mdui-icon material-icons">add</i><span>请先登录</span></button>';
         }
         ?>
 

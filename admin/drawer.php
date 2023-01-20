@@ -37,6 +37,12 @@
                     <div class="mdui-list-item-content" style="font-size:15px!important">模板</div>
                 </li>
             </a>
+            <a href="mail.php">
+                <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">&#xe158;</i>
+                    <div class="mdui-list-item-content" style="font-size:15px!important">邮件</div>
+                </li>
+            </a>
             <div class="mdui-divider"></div>
             <a href="update.php">
                 <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
@@ -44,6 +50,7 @@
                     <div class="mdui-list-item-content" style="font-size:15px!important">检查更新</div>
                 </li>
             </a>
+
             <a href="about.php">
                 <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
                     <i class="mdui-list-item-icon mdui-icon material-icons">&#xe147;</i>
