@@ -53,20 +53,41 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
             font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
-    <div id="page-index" class="mdui-container ">
+    <div class="medium" style=" text-align:center;display: flex">
 
-        <div class="banner " style=" position:  relative;transform: translateY(25%);">
+        <div>
+            <div style="color:black;font-size: 20px;" class="mdui-typo">
+                <h1 style="font-weight: bold;">模板获取</h1>
+                <h5>模板名称：<?php echo $_GET["name"]; ?> </h5>
+                <h5>模板版本：<?php echo $_GET["version"]; ?> </h5>
+                <br>
+                <div id="spp" class="mdui-spinner"></div>
 
-            <h1>Rapid<strong>&nbsp;CMS</strong></h1>
+                <?php
 
-            <div class="meta">欢迎使用RapidCMS,简单好用的官网CMS系统</div>
-            <div class="actions"><a href="https://www.yuque.com/rapid/cms" class="mdui-btn mdui-ripple" target="_blank">官方文档</a><a href="https://github.com/codewyx/rapidcms" class="mdui-btn mdui-ripple">GITHUB</a></div>
-    
-            <div class="more-meta mdui-typo"><span class="current">
-                当前版本：V<? echo $data_index["version"]; ?>
+                $url = 'https://cms.tethys.asia/download/log.zip';
+                $file_name = "../template/" . basename($url);
+                
+                if (file_put_contents($file_name, file_get_contents($url))) {
+                    echo "<script>document.getElementById('spp').style.display='none';</script>文件下载成功";
+                } else {
+                    echo "<script>document.getElementById('spp').style.display='none';</script>文件下载失败";
+                }
+                require_once('pclzip.lib.php');
 
-    </div> </div>
+                $zip = new PclZip("../template/" . basename($url));
+                $result = $zip->extract(PCLZIP_OPT_PATH, "../template/");
 
+                if ($result == 0) {
+                    echo '<br>解压失败，请联系管理员';
+                } else {
+                    echo '<br>解压成功';
+                }
+
+                ?>
+            </div>
+
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.js"></script>

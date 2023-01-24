@@ -68,7 +68,7 @@ function confirmAct()
         <div class="mdui-card" style="overflow:scroll">
 
             <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title" style="font-size:30px;">文章设置 <a href="article-add.php"><button class="mdui-btn mdui-btn-icon mdui-ripple"><i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe147;</i></button></a></div>
+                <div class="mdui-card-primary-title" style="font-size:30px;">文章设置</div>
 
             </div>
 

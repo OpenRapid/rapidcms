@@ -349,7 +349,7 @@ body.mdui-locked {
     font-weight: 400;
     font-family: Material Icons;
     font-style: normal;
-    src: local("Material Icons"), local("MaterialIcons-Regular"), url(cff684e59ffb052d72cb8d5e49471553.woff2) format("woff2"), url(83bebaf37c09c7e1c3ee52682892ae14.woff) format("woff")
+    src: local("Material Icons"), local("MaterialIcons-Regular")
 }
 
 .material-icons {
@@ -365,48 +365,42 @@ body.mdui-locked {
     font-family: Roboto;
     font-style: normal;
     font-display: swap;
-    src: local("Roboto Regular"), local("Roboto-Regular"), url(c065bd9fa03a7a797d95ba7f198a9dcf.woff2) format("woff2"), url(770a8fca674a3550e241a6de7fa82d8b.woff) format("woff")
-}
+    src: local("Roboto Regular"), local("Roboto-Regular")}
 
 @font-face {
     font-weight: 400;
     font-family: Roboto;
     font-style: italic;
     font-display: swap;
-    src: local("Roboto RegularItalic"), local("Roboto-RegularItalic"), url(3a0ee5b0beec8d0ead1336016cbe19ad.woff2) format("woff2"), url(33d48155cd9f38c64e71b9d016dd61fb.woff) format("woff")
-}
+    src: local("Roboto RegularItalic"), local("Roboto-RegularItalic")}
 
 @font-face {
     font-weight: 500;
     font-family: Roboto;
     font-style: normal;
     font-display: swap;
-    src: local("Roboto Medium"), local("Roboto-Medium"), url(b92cc2170a4d5438fd3d19f349ce3785.woff2) format("woff2"), url(eb797abfa6a5cca2463e423c07c4f6ea.woff) format("woff")
-}
+    src: local("Roboto Medium"), local("Roboto-Medium")}
 
 @font-face {
     font-weight: 500;
     font-family: Roboto;
     font-style: italic;
     font-display: swap;
-    src: local("Roboto MediumItalic"), local("Roboto-MediumItalic"), url(113e7623163d4cb7f965cd8f8d3859eb.woff2) format("woff2"), url(8be651082cc0d07c84f633965e8ced59.woff) format("woff")
-}
+    src: local("Roboto MediumItalic"), local("Roboto-MediumItalic")}
 
 @font-face {
     font-weight: 700;
     font-family: Roboto;
     font-style: normal;
     font-display: swap;
-    src: local("Roboto Bold"), local("Roboto-Bold"), url(3b52bc86749058f144deb815c481ca5b.woff2) format("woff2"), url(8bd7856b64b4313341ebfbc0136c9d74.woff) format("woff")
-}
+    src: local("Roboto Bold"), local("Roboto-Bold")}
 
 @font-face {
     font-weight: 700;
     font-family: Roboto;
     font-style: italic;
     font-display: swap;
-    src: local("Roboto BoldItalic"), local("Roboto-BoldItalic"), url(f21b7e045fd077321cdaf92cab817cd3.woff2) format("woff2"), url(d85436fa35b78a399a68b44491fa3478.woff) format("woff")
-}
+    src: local("Roboto BoldItalic"), local("Roboto-BoldItalic")}
 
 .mdui-typo {
     line-height: 1.8;
@@ -2846,19 +2840,6 @@ body.mdui-loaded .mdui-drawer {
     line-height: 1.6
 }
 
-@media screen and (prefers-color-scheme:dark) {
-    #page-index {
-        color: #bfbfbf
-    }
-
-    #page-index a {
-        color: #8ab4f8 !important
-    }
-
-    #page-index a:before {
-        background-color: #8ab4f8
-    }
-}
 
 #page-index .banner {
     padding-top: 96px;
@@ -2877,11 +2858,7 @@ body.mdui-loaded .mdui-drawer {
     font-weight: 400
 }
 
-@media screen and (prefers-color-scheme:dark) {
-    #page-index .banner h1 strong {
-        color: #8ab4f8
-    }
-}
+
 
 #page-index .banner .meta {
     margin: 0 auto 48px;
@@ -2908,11 +2885,7 @@ body.mdui-loaded .mdui-drawer {
     background-color: rgba(26, 115, 132, .12)
 }
 
-@media screen and (prefers-color-scheme:dark) {
-    #page-index .banner .actions a {
-        border-color: #8ab4f8
-    }
-}
+
 
 #page-index .banner .more-meta {
     padding-top: 48px
@@ -2965,11 +2938,7 @@ body.mdui-loaded .mdui-drawer {
     fill: #1a73e8
 }
 
-@media screen and (prefers-color-scheme:dark) {
-    #page-index .feature .icon path {
-        fill: #8ab4f8
-    }
-}
+
 
 #page-index .feature h2 {
     margin: 0;
@@ -2980,11 +2949,7 @@ body.mdui-loaded .mdui-drawer {
     text-align: center
 }
 
-@media screen and (prefers-color-scheme:dark) {
-    #page-index .feature h2 {
-        color: #8ab4f8
-    }
-}
+
 
 #page-index .feature pre {
     padding: 16px 20px

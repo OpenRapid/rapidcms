@@ -57,7 +57,7 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
         <div style="color:black;font-size: 20px;" class="mdui-typo">
             <h2 style="font-weight: bold;">当前版本：Dev.<?echo $data_index["version"];?></h2>
             <iframe src="https://onrjy.rth1.one/bbsversion.html" style="width:400px;height:50px" name="iframe_a"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>    
-        <br>
+        <br><br>
 
         <a target="_blank"  href="http://cms.rapidwt.cn/template/RapidCMS/download.php"><button  name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">下载最新版</button>
         </div>
