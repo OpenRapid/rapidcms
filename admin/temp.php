@@ -61,7 +61,7 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
             <div class="mdui-card-primary">
                 <div class="mdui-card-primary-title" style="font-size:30px">设置模板</div>
             </div>
-            <m-scrollbar style="font-size:15px;height: 350px">
+            <m-scrollbar style="font-size:15px;height: 400px">
                 <div class="mdui-card-content" style="font-size:18px;text-align:left">
                     当前模板：<? echo $data_index["template"] ?>
                     &nbsp;&nbsp;&nbsp;          &nbsp;&nbsp;&nbsp;          &nbsp;&nbsp;     <a  target="_blank" href="../../../../template/<? echo $data_index["template"] ?>/setting.php"><button type="button" style="color:black" class="mdui-btn mdui-btn-raised  action-btn">模板单独设置</button></a><br><br>
@@ -81,7 +81,15 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
                         &nbsp;&nbsp;&nbsp;
                         <button type="submit" name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">确认</button><br><br>
                     </form>
-                    <a  target="_blank" href="https://www.yuque.com/rapid/cms/yo0y1er0vg6rl86g"><button type="button" style="color:black" class="mdui-btn mdui-btn-raised  action-btn">进入云平台获取模板</button><br><br></a>
+                    <form method="get" action="download-template.php"> 输入Key加载模板：
+                      <div style="display: inline;">  
+                    <input style="width:300px" class="mdui-textfield-input" name="name" type="text"
+                                value="" required="">
+                                <br>
+                        <button type="submit" name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">确认</button><br><br>
+                        </div>
+                    </form>
+                    <a  target="_blank" href="https://www.yuque.com/rapid/cms/yo0y1er0vg6rl86g"><button type="button" style="color:black" class="mdui-btn mdui-btn-raised  action-btn">进入文档获取模板</button><br><br></a>
                      
 
                 </div>
