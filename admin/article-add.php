@@ -32,16 +32,16 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
     <title>RapidCMS管理后台</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="shortcut icon"" href=" ../../../../../resource/img/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href=" ../../../../../resource/img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.css">
     <link rel="stylesheet" href="../../../../resource/css/style.css">
     <link rel="stylesheet" href="../../../../../template/default/theme.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <link rel="stylesheet" href="http://kindeditor.net/ke4/themes/default/default.css" />
-    <script charset="utf-8" src="http://kindeditor.net/ke4/kindeditor-min.js"></script>
-    <script charset="utf-8" src="http://kindeditor.net/ke4/lang/zh-CN.js"></script>
+    <link rel="stylesheet" href="kindeditor/themes/default/default.css" />
+    <script charset="utf-8" src="kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8" src="kindeditor/lang/zh-CN.js"></script>
     <script>
         var editor;
         KindEditor.ready(function(K) {
@@ -116,7 +116,8 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
                                 error_reporting(0);
                                 header("Content-type:text/html;charset=utf-8");
                                 $table_name = "rapidcmscategory";
-                                $json_string = file_get_contents($_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['HTTP_HOST'] . '/install/sql-config/sql.json');
+                                
+                                $json_string = file_get_contents('../install/sql-config/sql.json');
                                 $data = json_decode($json_string, true);
                                 $conn = mysqli_connect($data['server'], $data['dbusername'], $data['dbpassword'], $data['dbname']);
                                 $sql = 'select * from `' . $table_name . '` ORDER BY num DESC';

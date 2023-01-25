@@ -61,27 +61,27 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
                 <h5>模板名称：<?php echo $_GET["name"]; ?> </h5>
                 <h5>模板版本：<?php echo $_GET["version"]; ?> </h5>
                 <br>
-                <div id="spp" class="mdui-spinner"></div>
+
 
                 <?php
 
-                $url = 'https://cms.tethys.asia/download/log.zip';
-                $file_name = "../template/" . basename($url);
-                
-                if (file_put_contents($file_name, file_get_contents($url))) {
-                    echo "<script>document.getElementById('spp').style.display='none';</script>文件下载成功";
-                } else {
-                    echo "<script>document.getElementById('spp').style.display='none';</script>文件下载失败";
-                }
+$arrContextOptions=array(
+    "ssl"=>array(
+        "verify_peer"=>false,
+        "verify_peer_name"=>false,
+    ),
+);  
+file_put_contents("../template/".$_GET["name"].".zip", file_get_contents("http://cdn.jsdelivr.net/gh/codewyx/cmscdn/".$_GET["name"].".zip", false, stream_context_create($arrContextOptions)));
+            
                 require_once('pclzip.lib.php');
 
-                $zip = new PclZip("../template/" . basename($url));
+                $zip = new PclZip("../template/" .$_GET["name"].".zip");
                 $result = $zip->extract(PCLZIP_OPT_PATH, "../template/");
-
                 if ($result == 0) {
                     echo '<br>解压失败，请联系管理员';
                 } else {
                     echo '<br>解压成功';
+                    unlink("../template/" . $_GET["name"] . ".zip");
                 }
 
                 ?>

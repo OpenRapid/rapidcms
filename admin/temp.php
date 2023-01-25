@@ -81,7 +81,8 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
                         &nbsp;&nbsp;&nbsp;
                         <button type="submit" name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">确认</button><br><br>
                     </form>
-                   
+                    <a  target="_blank" href="https://www.yuque.com/rapid/cms/yo0y1er0vg6rl86g"><button type="button" style="color:black" class="mdui-btn mdui-btn-raised  action-btn">进入云平台获取模板</button><br><br></a>
+                     
 
                 </div>
             </m-scrollbar>
