@@ -38,5 +38,4 @@ $filename1 = '../resource/config/mail.json';
 $fp1 = fopen($filename1, "w");
 $len1 = fwrite($fp1, $json_string1);
 fclose($fp1);
-echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."修改成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./mail.php"."\""."</script>";
-    
+sendalert("修改成功！");

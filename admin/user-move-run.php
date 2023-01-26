@@ -36,8 +36,7 @@ if($link)
       $str="UPDATE `rapidcmsuser` SET `password`= '".$password1."' WHERE username='".$_POST["username"]."'";
 
 	  $result=mysqli_query($link,$str);
-      echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."修改成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./user.php"."\""."</script>";
-    
+    sendalert("修改成功！");
   }
 }
 ?>

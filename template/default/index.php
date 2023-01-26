@@ -1,6 +1,6 @@
 <?php
-include("resource/variable.php");
-include("head-menu.php") ?>
+
+include("menu.php") ?>
 <style>
     * {
         font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -19,4 +19,4 @@ include("head-menu.php") ?>
     </div>
 </div>
 
-<?php include("login-logon-onload.php") ?>
+<?php include("login-logon.php") ?>

@@ -34,5 +34,4 @@ $filename1 = '../resource/config/header.json';
 $fp1 = fopen($filename1, "w");
 $len1 = fwrite($fp1, $json_string1);
 fclose($fp1);
-echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."修改成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./setting.php"."\""."</script>";
-    
+sendalert("修改成功");

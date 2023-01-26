@@ -36,8 +36,7 @@ if($link)
       $str='INSERT INTO `rapidcmscategory`(`id`, `name`, `pic`, `num`) VALUES ("'.$_POST["id"].'","'.$_POST["name"].'","'.$_POST["pic"].'",'.$_POST["num"].')';
 
 	  $result=mysqli_query($link,$str);
-      echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."增加成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./category.php"."\""."</script>";
-    
+      sendalert("增加成功！");
   }
 }
 ?>

@@ -30,11 +30,14 @@ if($link)
         }
 
 setcookie("admin", encode('admin',$password) ,time()+3600000,'/');
-echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."登录成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./index.php"."\""."</script>";
-     
+Header("Location: index.php");
+
+
       }else{ 
-      echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."登录失败！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./login.php"."\""."</script>";
-      }
+        sendalert("登录失败");
+        
+    
+    }
     
   }
 }

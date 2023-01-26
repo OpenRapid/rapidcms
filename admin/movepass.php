@@ -40,14 +40,13 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
-<body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-deep-purple mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
+<body class=" mdui-appbar-with-toolbar mdui-theme-accent-deep-purple mdui-theme-primary-deep-purple mdui-text-color-white mdui-drawer-body-left" style="--color-primary:79, 55, 139; --color-accent: 79, 55, 139;">
     <div class="mdui-toolbar mdui-color-theme mdui-text-color-white mdui-appbar mdui-appbar-fixed mdui-headroom">
         <button class="drawer mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></button>
         <span class="mdui-typo-title">RapidCMS 管理后台</span>
     </div>
 
     <? include("drawer.php"); ?>
-
     <style>
         * {
             font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -55,50 +54,34 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
     </style>
     <div style="    position: absolute;left: 60%;top:10%;text-align:center;    transform: translateX(-50%  );">
 
-        <div class="mdui-card" style="overflow:scroll">
+        <div class="mdui-card">
 
             <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title" style="font-size:30px;">用户设置</div>
+                <div class="mdui-card-primary-title" style="font-size:30px">修改管理员密码</div>
             </div>
-           
-                <m-scrollbar style="height: 650px;width:900px;">
-                    <div style="width:80%;position: absolute;left: 50%;    transform: translateX(-50%  );"  class="mdui-table-fluid">
-                        <table class="mdui-table">
-                            <thead>
-                                <tr>
-                                    <th>用户名</th>
-                                    <th>用户状态</th>
-                                    <th  class="mdui-table-col-numeric"> </th>
-                                </tr>
-                            </thead>
-                            <tbody>
+            <form method="post" action="run-movepass.php">
+                <m-scrollbar style="height: 300px;width:900px">
+                    <div class="mdui-card-content" style="font-size:15px;text-align:left">
+                        <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
+                            <label class="mdui-textfield-label">输入密码</label>
+                            <input class="mdui-textfield-input" name="password" type="password"
+                              required="">
+                              <div class="mdui-textfield-error">密码不能为空</div>
+                        </div>
+                        <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
+                            <label class="mdui-textfield-label">重复密码</label>
+                            <input class="mdui-textfield-input" name="password2" type="password"
+                               required="">
+                               <div class="mdui-textfield-error">重复密码不能为空</div>
+                        </div>
+                      
+                        <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">提交</button>
 
-                    <?php
-                    $table_name = "rapidcmsuser";
-                    $json_string = file_get_contents('../install/sql-config/sql.json');
-                    $data = json_decode($json_string, true);
-                    $conn = mysqli_connect($data['server'], $data['dbusername'], $data['dbpassword'], $data['dbname']);
-                    $sql = 'select * from `' . $table_name . '`';
-                    $res = mysqli_query($conn, $sql);
-                    $colums = mysqli_num_fields($res);
-                    while ($row = mysqli_fetch_row($res)) {
-                       echo "<tr>";
-                        echo "</tr>";
-                        echo "<td>$row[0]</td>";
-                        echo "<td>$row[2]</td>";
-                        echo '<td ><a href="user-del.php?username='.$row[0].'"><button class="mdui-btn mdui-btn-icon mdui-ripple"><i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe872;</i></button></a>&nbsp;&nbsp;&nbsp;&nbsp;';
-                        echo '<a href="user-move.php?username='.$row[0].'"><button class="mdui-btn mdui-btn-icon mdui-ripple">   <i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe3c9;</i></button></a></td>';
-                    }
-                    ?>
-                                  
-                               
-                            </tbody>
-                        </table>
                     </div>
                 </m-scrollbar>
-  
+            </form>
         </div>
-
+       
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.js"></script>

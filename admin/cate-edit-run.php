@@ -36,8 +36,7 @@ if($link)
       $str='  UPDATE `rapidcmscategory` SET `name`="'.$_POST["name"].'",`pic`="'.$_POST["pic"].'",`num`='.$_POST["num"].' WHERE `id`="'.$_POST["id"].'"';
         echo $str;
 	  $result=mysqli_query($link,$str);
-      echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."修改成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./category.php"."\""."</script>";
-    
+      sendalert("修改成功！");
   }
 }
 ?>

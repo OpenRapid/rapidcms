@@ -1,5 +1,6 @@
 <?php
 include("resource/variable.php");
+include("resource/function.php"); 
 $json_string = file_get_contents($servers["lockurl"]);
 $data_json = json_decode($json_string, true);
 if ($data_json["lock"] == "install") {

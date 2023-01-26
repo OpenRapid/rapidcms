@@ -38,8 +38,7 @@ if($link)
     $str='  UPDATE `rapidcmspage` SET `title`="'.$_POST["title"].'",`content`="'.$cont2.'",`time`="'.$timenow.'" WHERE `categoryid`="'.$_POST["categoryid"].'"';
     echo $str;
 	  $result=mysqli_query($link,$str);
-      echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."修改成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./article.php"."\""."</script>";
-    
+      sendalert("修改成功！");
   }
 }
 ?>

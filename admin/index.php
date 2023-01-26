@@ -22,6 +22,7 @@ $pa = $pass[0];
 if ($_COOKIE["admin"] != encode('admin', $pa)) {
     Header("Location: login.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,10 +41,10 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
-<body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-indigo mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
+<body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-deep-purple mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
     <div class="mdui-toolbar mdui-color-theme mdui-text-color-white mdui-appbar mdui-appbar-fixed mdui-headroom">
         <button class="drawer mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></button>
-        <span class="mdui-typo-title">RapidCMS管理后台</span>
+        <span class="mdui-typo-title">RapidCMS 管理后台</span>
     </div>
 
     <? include("drawer.php"); ?>
@@ -57,10 +58,10 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
 
         <div class="banner " style=" position:  relative;transform: translateY(25%);">
 
-            <h1>Rapid<strong>&nbsp;CMS</strong></h1>
+            <h1 >Rapid<strong style="color:#4527A0;">&nbsp;CMS</strong></h1>
 
             <div class="meta">欢迎使用RapidCMS,简单好用的官网CMS系统</div>
-            <div class="actions"><a href="https://www.yuque.com/rapid/cms" class="mdui-btn mdui-ripple" target="_blank">官方文档</a><a href="https://github.com/codewyx/rapidcms" class="mdui-btn mdui-ripple">GITHUB</a></div>
+            <div class="actions " ><a href="https://www.yuque.com/rapid/cms" class="mdui-btn mdui-ripple" target="_blank" style="color:#4527A0!important;border: 1px solid #4527A0!important;">官方文档</a><a href="https://github.com/codewyx/rapidcms" class="mdui-btn mdui-ripple" style="color:#4527A0!important;border: 1px solid #4527A0!important;">GITHUB</a></div>
     
             <div class="more-meta mdui-typo"><span class="current">
                 当前版本：V<? echo $data_index["version"]; ?>

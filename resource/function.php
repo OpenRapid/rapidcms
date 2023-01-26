@@ -5,7 +5,7 @@
  * @param string $dataValue
  * @param integer $result
  * @param string $url
- * @return void
+
  */
 function search_category($dataValue, $result, $url = "../../install/sql-config/sql.json")
 {
@@ -26,7 +26,7 @@ function search_category($dataValue, $result, $url = "../../install/sql-config/s
  * @param string $dataValue
  * @param integer $result
  * @param string $url
- * @return void
+
  */
 function search_article($dataValue, $result, $url = "../../install/sql-config/sql.json")
 {
@@ -47,7 +47,7 @@ function search_article($dataValue, $result, $url = "../../install/sql-config/sq
  * @param string $dataValue
  * @param integer $result
  * @param string $url
- * @return void
+
  */
 function search_catename_by_articleid($dataValue, $result, $url = "../../install/sql-config/sql.json")
 {

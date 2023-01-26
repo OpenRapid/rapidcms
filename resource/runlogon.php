@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+include("../resource/variable.php");
 $json_string = file_get_contents('../install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 header("Content-type:text/html;charset=utf-8");
@@ -16,8 +18,7 @@ if ($link) {
                 $password1 = $_POST["password"];
                 $password2 = $_POST["password2"];
                 if ($name == "" || $password1 == "") {
-                        echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "请填写完整" . "\"" . ")" . ";" . "</script>";
-                        echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $_GET["goto"] . "\"" . "</script>";
+                        sendalert("请填写完整");
                         exit;
                 }
                 if ($password1 == $password2) {
@@ -26,8 +27,7 @@ if ($link) {
                         $pass = mysqli_fetch_row($result);
                         $pa = $pass[0];
                         if ($pa == 1) {
-                                echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "该用户名已被注册" . "\"" . ")" . ";" . "</script>";
-                                echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $_GET["goto"] . "\"" . "</script>";
+                                sendalert("该用户名已被注册");
                                 exit;
                         }
                         $jhzt = "user";
@@ -38,13 +38,10 @@ if ($link) {
                         mysqli_error($link);
                         $close = mysqli_close($link);
                         if ($close) {
-
-                                echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "注册成功！" . "\"" . ")" . ";" . "</script>";
-                                echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $_GET["goto"] . "\"" . "</script>";
+                                sendalert("注册成功！");
                         }
                 } else {
-                        echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "两次密码不一致！" . "\"" . ")" . ";" . "</script>";
-                        echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $_GET["goto"] . "\"" . "</script>";
+                        sendalert("两次密码输入不一致！");
                 }
         }
 }

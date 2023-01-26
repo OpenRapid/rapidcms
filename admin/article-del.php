@@ -35,8 +35,7 @@ if($link)
 
       $str="DELETE FROM `rapidcmspage` WHERE id='".$_GET["id"]."'";
 	  $result=mysqli_query($link,$str);
-      echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."删除成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./article.php"."\""."</script>";
-    
+      sendalert("删除成功！");
   }
 }
 ?>

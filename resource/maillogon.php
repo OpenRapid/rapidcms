@@ -1,9 +1,10 @@
 <?php
+error_reporting(0);
 $json_string = file_get_contents('../install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 header("Content-type:text/html;charset=utf-8");
 $link = mysqli_connect($dataxxx['server'], $dataxxx['dbusername'], $dataxxx['dbpassword']);
-
+include("../resource/variable.php");
 $goto = "../../../../../../index.php";
 
 if ($link) {
@@ -18,8 +19,7 @@ if ($link) {
         $pass = mysqli_fetch_row($result);
         $pa = $pass[0];
         if ($pa == 1) {
-            echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "该用户名已被注册" . "\"" . ")" . ";" . "</script>";
-            echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . "../../../../../../index.php" . "\"" . "</script>";
+            sendalert("该用户名已被注册");
             exit;
         }
         $jhzt = "user";
@@ -30,9 +30,7 @@ if ($link) {
         // mysqli_error($link);
         $close = mysqli_close($link);
         if ($close) {
-
-            echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "注册成功！" . "\"" . ")" . ";" . "</script>";
-            echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . "../../../../../../index.php" . "\"" . "</script>";
-        }
+            sendalert("注册成功");
+  }
     }
 }

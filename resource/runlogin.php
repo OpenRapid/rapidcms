@@ -1,7 +1,7 @@
 <?php
-
+error_reporting(0);
 header("Content-type:text/html;charset=utf-8");
-
+include("../resource/variable.php");
 $json_string = file_get_contents('../install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 $link = mysqli_connect($dataxxx['server'], $dataxxx['dbusername'], $dataxxx['dbpassword']);
@@ -29,8 +29,7 @@ if ($link) {
             $name = $_POST["username"];
             $password = $_POST["password"];
             if ($name == "" || $password == "") {
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "请填写正确的信息！" . "\"" . ")" . ";" . "</script>";
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $goto . "\"" . "</script>";
+                  sendalert("请填写正确的信息");
                   exit;
             }
             $str = "select password from `rapidcmsuser` where username=" . "'" . "$name" . "'";
@@ -48,11 +47,8 @@ if ($link) {
                   setcookie("user", encode($name, $password11), time() + 3600000, '/');
                   setcookie("name", $name, time() + 3600000, '/');
                   sleep(2);
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "登录成功！" . "\"" . ")" . ";" . "</script>";
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $goto . "\"" . "</script>";
-            } else {
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "登录失败！" . "\"" . ")" . ";" . "</script>";
-                  echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $goto. "\"" . "</script>";
-            }
+                  sendalert("登录成功");
+             } else {
+                  sendalert("登录失败");   }
       }
 }

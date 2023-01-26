@@ -71,19 +71,30 @@
             </li>
         </a>
         <div class="mdui-divider"></div>
-        <a href="update.php">
+        <a href="movepass.php">
             <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
-                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8d7;</i>
-                <div class="mdui-list-item-content" style="font-size:15px!important">检查更新</div>
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe22b;</i>
+                <div class="mdui-list-item-content" style="font-size:15px!important">修改密码</div>
             </li>
         </a>
+        <div class="mdui-collapse" mdui-collapse>
+            <div class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header">
+                    <li class="mdui-collapse-item-header mdui-list-item mdui-ripple" style="font-size:15px!important">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">&#xe147;</i>
+                        <div class="mdui-list-item-content" style="font-size:15px!important">系统</div>
+                        <div class="mdui-collapse-item-arrow">
+                            <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                        </div>
+                    </li>
+                </div>
+                <div class="mdui-collapse-item-body mdui-list">
+                <a href="update.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">检查更新</a>
+                <a href="about.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">关于</a>
+                </div>
+            </div>
+        </div>
 
-        <a href="about.php">
-            <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
-                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe147;</i>
-                <div class="mdui-list-item-content" style="font-size:15px!important">关于</div>
-            </li>
-        </a>
     </ul>
     <div class="mdui-typo" style=" position: absolute;bottom:0%;   box-sizing: border-box; width: 100%;  padding: 20px 16px;">
         <h4> <small>© 2023 RapidTeam</small><br> <small>Powered by RapidTeam

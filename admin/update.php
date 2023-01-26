@@ -38,13 +38,13 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
 <link rel="stylesheet" href="../../../../resource/css/style.css">
 <link rel="stylesheet" href="../../../../../template/default/theme.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    </head><body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-indigo mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
+    </head><body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-deep-purple mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
     <div class="mdui-toolbar mdui-color-theme mdui-text-color-white mdui-appbar mdui-appbar-fixed mdui-headroom">
         <button class="drawer mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></button>
-        <span class="mdui-typo-title">RapidCMS管理后台</span>
+        <span class="mdui-typo-title">RapidCMS 管理后台</span>
     </div>
 
-<? include("drawer.php");?>
+    <? include("drawer.php"); ?>
     
     <style>
     * {

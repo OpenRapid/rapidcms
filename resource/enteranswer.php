@@ -17,7 +17,6 @@ $pcon = htmlentities($_POST["content"]);
 $conn = mysqli_connect($data['server'], $data['dbusername'], $data['dbpassword'], $data['dbname']);
 $sql2 = 'insert into `rapidcmschat` values("'.$_POST["id"].'","'.$_POST["people"].'","'.$pcon.'",0,"'.$timenow.'","'.$_POST["articleid"].'")';
 $res2 = mysqli_query($conn, $sql2);
-echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.alert" . "(" . "\"" . "发送成功！" . "\"" . ")" . ";" . "</script>";
 echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $goto . "\"" . "</script>";
 
 ?>

@@ -37,8 +37,8 @@ if($link)
       $str='INSERT INTO `rapidcmspage`(`id`, `title`, `content`, `time`, `categoryid`) VALUES ("'.$_POST["id"].'","'.$_POST["title"].'","'.$cont2.'","'.$timenow.'","'.$_POST["categoryid"].'")';
 
 	  $result=mysqli_query($link,$str);
-      echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."增加成功！"."\"".")".";"."</script>"; echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."./article.php"."\""."</script>";
-    
+    sendalert("增加成功！");
+     
   }
 }
 ?>
