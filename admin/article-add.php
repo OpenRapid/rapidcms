@@ -157,7 +157,7 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
         </div>
 
     </div>
-    <script src="http://fastly.jsdelivr.net/gh/codewyx/cmscdn/editor.js"></script>
+    <script src="mdui-editor/js/editor.js"></script>
     <script>
         function sub1(){
             document.getElementById("area").innerHTML= document.getElementById("content").innerHTML;
