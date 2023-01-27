@@ -6,7 +6,7 @@ function sendalert($content){
       Border-radius:10px!important
   }
   </style>
-  <link rel='stylesheet' href='https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css'/>
+  <link rel='stylesheet' href='../../../../../../resource/css/mdui.min.css'/>
   <body  class=' mdui-theme-accent-deep-purple mdui-theme-primary-deep-purple'>
   <script> 
   window.onload=()=>{
@@ -24,7 +24,7 @@ function sendalert($content){
   }
   
    </script>
-   <script src='https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js'></script>
+   <script src='../../../../../../resource/js/mdui.min.js'></script>'></script>
    </body>
    ";
   

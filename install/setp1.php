@@ -18,8 +18,8 @@ if ($data_json["lock"] == "install") {
     <meta name="renderer" content="webkit" />
     <meta name="force-rendering" content="webkit" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.css">
+    <link rel="stylesheet" href="../../../../../../resource/css/mdui.min.css" />
+    <link rel="stylesheet" href="../../../../../../resource/css/mtu.min.css">
     <link rel="stylesheet" href="../resource/css/style.css">
     <title>RapidCms安装</title>
 </head>
@@ -100,9 +100,9 @@ if ($data_json["lock"] == "install") {
                 }
             }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.js"></script>
+        <script src="../../../../../../resource/js/mtu.min.js"></script>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="../../../../../../resource/js/mdui.min.js"></script>
 </body>
 
 </html>

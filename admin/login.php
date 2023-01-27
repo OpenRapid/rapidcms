@@ -27,13 +27,13 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
 
 ?>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.css">
+<link rel="stylesheet" href="../../../../../../resource/css/mdui.min.css" />
+<link rel="stylesheet" href="../../../../../../resource/css/mtu.min.css">
 <link rel="stylesheet" href="../../../../resource/css/style.css">
 <link rel="stylesheet" href="../../../../../template/default/theme.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="../../../../../../resource/js/mtu.min.js"></script>
+<script src="../../../../../../resource/js/mdui.min.js"></script>
 
 <div id="form" class="mc-account mc-login mdui-dialog mdui-dialog-open " style="overflow: hidden;z-index:999;display: block; top: 150.104px; height: 540.792px;">
 

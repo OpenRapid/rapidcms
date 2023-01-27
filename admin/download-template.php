@@ -33,11 +33,11 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon"" href=" ../../../../../resource/img/icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.css">
+    <link rel="stylesheet" href="../../../../../../resource/css/mdui.min.css" />
+    <link rel="stylesheet" href="../../../../../../resource/css/mtu.min.css">
     <link rel="stylesheet" href="../../../../resource/css/style.css">
     <link rel="stylesheet" href="../../../../../template/default/theme.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
 </head>
 
 <body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-deep-purple mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
@@ -92,8 +92,8 @@ file_put_contents("../template/".$_GET["name"].".zip", file_get_contents("http:/
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="../../../../../../resource/js/mtu.min.js"></script>
+    <script src="../../../../../../resource/js/mdui.min.js"></script>
 
 </body>
 

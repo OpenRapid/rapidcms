@@ -36,11 +36,11 @@ use PhpMyAdmin\Charsets;
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <meta name="viewport" content="width=device-width,initial-scale=1">
          <link rel="shortcut icon"" href=" ../../../../../resource/img/icon.png" type="image/x-icon" />
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.css">
+         <link rel="stylesheet" href="../../../../../../resource/css/mdui.min.css" />
+         <link rel="stylesheet" href="../../../../../../resource/css/mtu.min.css">
          <link rel="stylesheet" href="../../../../resource/css/style.css">
          <link rel="stylesheet" href="../../../../../template/default/theme.css">
-         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+         
 
          <link rel="stylesheet" href="http://kindeditor.net/ke4/themes/default/default.css" />
          <script charset="utf-8" src="http://kindeditor.net/ke4/kindeditor-min.js"></script>
@@ -157,8 +157,8 @@ use PhpMyAdmin\Charsets;
 
          </div>
 
-         <script src="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+         <script src="../../../../../../resource/js/mtu.min.js"></script>
+         <script src="../../../../../../resource/js/mdui.min.js"></script>
      </body>
 
      </html>
