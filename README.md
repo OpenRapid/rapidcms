@@ -1,5 +1,5 @@
 # RapidCMS文档
-![avatar](banner.png)
+![容器 47.svg](https://img1.imgtp.com/2023/01/27/2YcYUD0y.svg)
 <div style="background-color:rgba(181, 239, 242, 0.5);border-radius:4px;padding:10px;font-size:28px;">
 <ne-h1 style="margin-top:0;">
 <ne-heading-content>
