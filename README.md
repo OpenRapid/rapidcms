@@ -36,7 +36,7 @@ MySQL 存在于服务器
 
 
 ### 开始安装
-1. 下载最新版本的 RapidCMS 安装包并解压。（在Gitee下载即可）
+1. 下载最新版本的 RapidCMS 安装包并解压。（在Github、Gitee、Gitea下载即可）
 2. 在你的 Web 服务器上为 RapidCMS 创建数据库，数据库编码建议设置为 utf8mb4_general_ci。
 3. 将解压缩后的 RapidCMS 文件上传到服务器。
 4. 如果为Linux类型系统请设置 RapidCMS 的文件夹权限为755（虚拟主机和Windows不需要设置）。
