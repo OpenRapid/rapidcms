@@ -9,9 +9,9 @@ function encode($string = '', $skey = 'cxphp')
     return str_replace(array('=', '+', '/'), array('O0O0O', 'o000o', 'oo00o'), join('', $strArr));
 }
 
-define('BASE_PATH2',str_replace('\\','/',realpath(dirname(__FILE__).'/'))."/");
-define('BASE_PATH3',str_replace('\\','/',realpath(dirname(BASE_PATH2).'/'))."/");
-$json_string = file_get_contents(BASE_PATH3.'/install/sql-config/sql.json');
+define('BASE_PATH', str_replace('\\', '/', realpath(dirname(__FILE__) . '/')) . "/");
+define('BASE_PATH1', str_replace('\\', '/', realpath(dirname(BASE_PATH) . '/')) . "/");
+$json_string = file_get_contents(BASE_PATH1 . '/install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 $link = mysqli_connect($dataxxx['server'], $dataxxx['dbusername'], $dataxxx['dbpassword'], $dataxxx['dbname']);
 $sql = "select password from `rapidcmsadmin` where username=\"admin\"";
@@ -19,29 +19,11 @@ $result = mysqli_query($link, $sql);
 $pass = mysqli_fetch_row($result);
 $pa = $pass[0];
 
-if ($_COOKIE["admin"] != encode('admin',$pa)) {
-    Header("Location: login.php"); 
+if ($_COOKIE["admin"] != encode('admin', $pa)) {
+    Header("Location: login.php");
 }
 ?>
-        <?php
-error_reporting(0);
-header("Content-type:text/html;charset=utf-8");
-$table_name = "rapidcmspage";
-define('BASE_PATH',str_replace('\\','/',realpath(dirname(__FILE__).'/'))."/");
-define('BASE_PATH1',str_replace('\\','/',realpath(dirname(BASE_PATH).'/'))."/");
-$json_string = file_get_contents(BASE_PATH1.'/install/sql-config/sql.json');
-$data = json_decode($json_string, true);
-$conn = mysqli_connect($data['server'], $data['dbusername'], $data['dbpassword'], $data['dbname']);
-$sql = 'select * from `'.$table_name .'` WHERE id="'.$_GET["id"].'"';
-$res = mysqli_query($conn, $sql);
-$colums = mysqli_num_fields($res);
-while ($row = mysqli_fetch_row($res)) {
-        $cat1= $row[1];
-        $cat2= $row[2];
-        $cat3= $row[4];
-}
 
-?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 
@@ -50,27 +32,32 @@ while ($row = mysqli_fetch_row($res)) {
     <title>RapidCMS管理后台</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="shortcut icon"" href=" ../../../../../resource/img/icon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href=" ../../../../../resource/img/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.css">
     <link rel="stylesheet" href="../../../../resource/css/style.css">
     <link rel="stylesheet" href="../../../../../template/default/theme.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <link rel="stylesheet" href="kindeditor/themes/default/default.css" />
-    <script charset="utf-8" src="kindeditor/kindeditor-all-min.js"></script>
-    <script charset="utf-8" src="kindeditor/lang/zh-CN.js"></script>
-    <script>
-        var editor;
-        KindEditor.ready(function(K) {
-            editor = K.create('textarea[name="content"]', {
-                allowFileManager: true
-            });
 
 
-        });
-    </script>
+    <style>
+        .editor {
+            width: 600px;
+            height: 600px;
+            margin: 20px auto;
+        }
+
+        #toolbar,
+        #content {
+            border: 1px solid rgba(0, 0, 0, 0.12);
+        }
+
+        #content {
+            border-top: none;
+        }
+    </style>
+
+
 </head>
-
 
 <body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-deep-purple mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
     <div class="mdui-toolbar mdui-color-theme mdui-text-color-white mdui-appbar mdui-appbar-fixed mdui-headroom">
@@ -78,22 +65,9 @@ while ($row = mysqli_fetch_row($res)) {
         <span class="mdui-typo-title">RapidCMS 管理后台</span>
     </div>
 
-    <? include("drawer.php"); ?>
-    <script>
-        function randomString(length, ) {
-            var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-            var result = '';
-            for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
-            return result;
-        }
 
-        function resetnum() {
-            document.getElementById("ranid").value = randomString(10);
-        }
-        window.onload = function() {
-            resetnum()
-        }
-    </script>
+    <? include("drawer.php"); ?>
+
     <style>
         * {
             font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -112,59 +86,78 @@ while ($row = mysqli_fetch_row($res)) {
                     <button class="mdui-btn mdui-btn-icon close" onclick="window.location.href='article.php'"><i class="mdui-icon material-icons">close</i></button>
 
                     <div class="mdui-dialog-title">修改</div>
-                    <form method="post" action="article-edit-run.php">
-                    <div style="display:none" class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
-        <label class="mdui-textfield-label">唯一ID（10位字符）</label>
-    <input class="mdui-textfield-input" name="id" type="text" value="<?php echo $_GET["id"]?>" >
- </div>
-    <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
-        <label class="mdui-textfield-label">唯一ID（10位字符）</label>
-    <input class="mdui-textfield-input" type="text" value="<?php echo $_GET["id"]?>" disabled>
- </div>
+                    <form id="form" method="post" action="article-edit-run.php">
+                        <div style="display:none" class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
+                            <label class="mdui-textfield-label">唯一ID（10位字符）</label>
+                            <input class="mdui-textfield-input" name="id" type="text" value="<?php echo $_GET["id"] ?>">
+                        </div>
+                        <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
+                            <label class="mdui-textfield-label">唯一ID（10位字符）</label>
+                            <input class="mdui-textfield-input" type="text" value="<?php echo $_GET["id"] ?>" disabled>
+                        </div>
                         <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
                             <label class="mdui-textfield-label">标题</label>
-                            <input class="mdui-textfield-input" value="<?php echo $cat1?>" type="text" name="title" required="">
+                            <input class="mdui-textfield-input" value="<?php
+                            error_reporting(0);
+                            header("Content-type:text/html;charset=utf-8");
+                            $table_name = "rapidcmspage";
+                            $json_string = file_get_contents('../install/sql-config/sql.json');
+                            $data = json_decode($json_string, true);
+                            $conn = mysqli_connect($data['server'], $data['dbusername'], $data['dbpassword'], $data['dbname']);
+                            $sql = 'select * from `' . $table_name . '` WHERE `id`= \''.$_GET["id"].'\'';
+                       
+                            $res = mysqli_query($conn, $sql);
+                            $colums = mysqli_num_fields($res);
+                            while ($row = mysqli_fetch_row($res)) {
+                                echo $row[1];
+                            }
+
+                            ?>" type="text" name="title" required="">
                         </div>
-                      <br>
-                            <label class="mdui-textfield-label">所属分类</label>
-                        
-      
-                            <select  class="mdui-select" name="categoryid" mdui-select>
+                        <br>
+                        <label class="mdui-textfield-label">所属分类</label>
 
 
-                                <?php
-                                error_reporting(0);
-                                header("Content-type:text/html;charset=utf-8");
-                                $table_name = "rapidcmscategory";
-                                $json_string = file_get_contents('../install/sql-config/sql.json');
-                                $data = json_decode($json_string, true);
-                                $conn = mysqli_connect($data['server'], $data['dbusername'], $data['dbpassword'], $data['dbname']);
-                                $sql = 'select * from `' . $table_name . '` ORDER BY num DESC';
-                                $res = mysqli_query($conn, $sql);
-                                $colums = mysqli_num_fields($res);
-                                while ($row = mysqli_fetch_row($res)) {
-                                    if($row[0]==$cat3){
-                                        echo '<option selected="selected" value="' . $row[0] . '">' . $row[1] . '</option>';
-                                    }else{
-                                        echo '<option value="' . $row[0] . '">' . $row[1] . '</option>';
-                                    }
-                                   
+                        <select class="mdui-select" name="categoryid" mdui-select>
+
+
+                            <?php
+                            error_reporting(0);
+                            header("Content-type:text/html;charset=utf-8");
+                            $table_name = "rapidcmscategory";
+                            $json_string = file_get_contents('../install/sql-config/sql.json');
+                            $data = json_decode($json_string, true);
+                            $conn = mysqli_connect($data['server'], $data['dbusername'], $data['dbpassword'], $data['dbname']);
+                            $sql = 'select * from `' . $table_name . '` ORDER BY num DESC';
+                            $res = mysqli_query($conn, $sql);
+                            $colums = mysqli_num_fields($res);
+                            while ($row = mysqli_fetch_row($res)) {
+                                if ($row[0] == $cat3) {
+                                    echo '<option selected="selected" value="' . $row[0] . '">' . $row[1] . '</option>';
+                                } else {
+                                    echo '<option value="' . $row[0] . '">' . $row[1] . '</option>';
                                 }
-                                ?>
-                            </select>
-
-                            <br>  <br>
-                        <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
-                           
-                            <textarea name="content" style="width:800px;height:400px;visibility:hidden;"> 
-                            <?php echo htmlspecialchars_decode($cat2);?> </textarea>
+                            }
+                            ?>
+                        </select>
 
 
+
+                        <br> <br> <br>
+
+                        <div style="  height:460px;width:620px" class="editor">
+                            <div style="  border-radius: 10px 10px 0 0!important;" id="toolbar"></div>
+                            <div style="  border-radius: 0 0 10px 10px !important;" id="content"><?php echo htmlspecialchars_decode($cat2); ?></div>
+                            <textarea style="display:none" id="area" name="content"></textarea>
                         </div>
+
+
+
+
 
 
                         <div class="actions mdui-clearfix">
-                            <button type="submit" name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">确认</button>
+                            <button type="button" onclick="sub1()" name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">确认</button>
                         </div>
                     </form>
                 </div>
@@ -173,12 +166,20 @@ while ($row = mysqli_fetch_row($res)) {
         </div>
 
     </div>
-
+    <script src="mdui-editor/js/editor.js"></script>
+    <script>
+        function sub1() {
+            document.getElementById("area").innerHTML = document.getElementById("content").innerHTML;
+            document.getElementById("form").submit()
+        }
+        var editor = new Editor('#toolbar', '#content', {
+            autoSave: true,
+            imageUploadUrl: 'upload.php',
+            imageUploadSuffix: ['png'],
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/mtu/dist/mtu.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
 </body>
 
 </html>
-
-
-

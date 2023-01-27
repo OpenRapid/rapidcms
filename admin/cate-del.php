@@ -35,7 +35,7 @@ if($link)
 
       $str="DELETE FROM `rapidcmscategory` WHERE id='".$_GET["id"]."'";
 	  $result=mysqli_query($link,$str);
-      sendalert("删除成功！");
+      sendalert("删除成功！请刷新");
   }
 }
 ?>

@@ -103,7 +103,7 @@ function confirmAct()
                                 echo "<td>$row[1]</td>";
                                 echo "<td>$row[3]</td>";
                                 echo "<td>$row[4]</td>";
-                                echo '<td><a href="article-edit.php?id='.$row[0].'"><button class="mdui-btn mdui-btn-icon mdui-ripple">   <i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe3c9;</i></button></a>';
+                                echo '<td><a href="article-edit.php?id='.$row[0].'&name='.urlencode($row[1]).'"><button class="mdui-btn mdui-btn-icon mdui-ripple">   <i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe3c9;</i></button></a>';
                                 echo '<a  href="article-chat.php?id='.$row[0].'"><button class="mdui-btn mdui-btn-icon mdui-ripple"><i style="color:#6E6E6E" class="mdui-icon material-icons">chat</i></button></a>';
                         
                                 echo '<a onclick="return confirmAct();" href="article-del.php?id='.$row[0].'"><button class="mdui-btn mdui-btn-icon mdui-ripple"><i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe872;</i></button></a>&nbsp;&nbsp;&nbsp;&nbsp;';

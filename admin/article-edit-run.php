@@ -35,8 +35,8 @@ if($link)
     $timenow = date('Y-m-d H:i:s');
     $cont2=htmlspecialchars($_POST["content"]);
        
-    $str='  UPDATE `rapidcmspage` SET `title`="'.$_POST["title"].'",`content`="'.$cont2.'",`time`="'.$timenow.'" WHERE `categoryid`="'.$_POST["categoryid"].'"';
-    echo $str;
+    $str='  UPDATE `rapidcmspage` SET `title`="'.$_POST["title"].'",`content`="'.$cont2.'",`time`="'.$timenow.'" WHERE `id`="'.$_POST["id"].'"';
+
 	  $result=mysqli_query($link,$str);
       sendalert("修改成功！");
   }
