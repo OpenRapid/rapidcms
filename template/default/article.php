@@ -74,7 +74,7 @@
                 echo '<div class="item"><div class="mc-user-line"><div class="mc-user-popover"><a class="avatar user-popover-trigger"><i class="mdui-list-item-icon mdui-icon material-icons">people</i></a>    ';
                 echo '<a class="username user-popover-trigger mdui-text-color-theme-text">' . $row[1] . '</a>    ';
                 echo '<div class="more"><span class="time mdui-text-color-theme-secondary" >' . $row[4] . '</span></div>';
-                echo '</div></div><div class="content mdui-typo"><p>' . $row[2] . '</p>';
+                echo '</div></div><div class="content mdui-typo"><p>' . htmlentities($row[2]) . '</p>';
                 echo '</div><div class="actions"><div class="mc-vote"><button onclick="sendaddgood(\'' . $row[0] . '\',\'' . $row[5] . '\')" class="mc-icon-button mdui-btn mdui-btn-icon mdui-btn-outlined" mdui-tooltip="{content: \'顶一下\', delay: 300}">    ';
                 echo '<span id="goodbut_' . $row[0] . '" class="badge">' . $row[3] . '</span>    ';
                 echo '<i class="mdui-icon material-icons mdui-text-color-theme-icon">thumb_up</i></button></div><div class="flex-grow"></div><div class="mc-options-button">    ';
@@ -87,13 +87,6 @@
             }
 
             ?>
-
-
-
-
-
-
-
 
         </div>
 

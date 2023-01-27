@@ -64,6 +64,13 @@
                 <div class="mdui-list-item-content" style="font-size:15px!important">模板</div>
             </li>
         </a>
+        
+        <a href="plugin.php">
+            <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
+                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8b0;</i>
+                <div class="mdui-list-item-content" style="font-size:15px!important">插件</div>
+            </li>
+        </a>
         <a href="mail.php">
             <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
                 <i class="mdui-list-item-icon mdui-icon material-icons">&#xe158;</i>

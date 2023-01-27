@@ -7,4 +7,9 @@ echo '</head>';
 $cid = $_GET["id"];
 include("../template/" . $data_index["template"] . "/category.php");
 include('../template/' . $data_index["template"] . '/footer.php');
+$file = scandir("../plugin");
+for ($i = 2; $i < count($file); $i++) {
+    include("../plugin/" . $file[$i] . "/index.php");
+}
 include("../resource/foot-message.php");
+
