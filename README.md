@@ -50,7 +50,8 @@ MySQL 存在于服务器
 
 
 ## Thanks - 鸣谢
-- 开源UI MDUI
-- 开源UI MTU
+- MDUI
+- MTU
 - MDClub-Editor
+- Jquery
 - 以上均使用MIT许可证，本项目已继承。
