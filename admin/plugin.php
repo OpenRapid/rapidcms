@@ -136,11 +136,11 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
                                     echo "<td>" . $row["version"] . "</td>";
                                     echo "<td>" . $row["author"] . "</td>";
                                     if ($row["use"] == true) {
-                                        echo "<td>启用</td>";
+                                        echo "<td style='color:green'><strong>启用</strong></td>";
                                         echo '<td><a target="_blank" href="' . '../plugin/' . $file[$i] . "/setting.php" . '"><button class="mdui-btn mdui-btn-icon mdui-ripple">   <i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe3c9;</i></button></a>';
                                         echo '<a onclick="return confirmAct1();" href="plugin-move.php?id=' . $file[$i] . '"><button class="mdui-btn mdui-btn-icon mdui-ripple"><i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe644;</i></button></a>';
                                     } else {
-                                        echo "<td>禁用</td>";
+                                        echo "<td style='color:red'><strong>禁用</strong></td>";
                                         echo '<td><a target="_blank" href="' . '../plugin/' . $file[$i] . "/setting.php" . '"><button class="mdui-btn mdui-btn-icon mdui-ripple">   <i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe3c9;</i></button></a>';
                                         echo '<a onclick="return confirmAct2();" href="plugin-move.php?id=' . $file[$i] . '"><button class="mdui-btn mdui-btn-icon mdui-ripple"><i style="color:#6E6E6E" class="mdui-icon material-icons">&#xe86c;</i></button></a>';
                                     }

@@ -9,13 +9,27 @@
                 <div class="mdui-list-item-content" style="font-size:15px!important">首页</div>
             </li>
         </a>
+        <div class="mdui-collapse" mdui-collapse>
+            <div class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header">
+                    <li class="mdui-collapse-item-header mdui-list-item mdui-ripple" style="font-size:15px!important">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8b8;</i>
+                        <div class="mdui-list-item-content" style="font-size:15px!important">设置</div>
+                        <div class="mdui-collapse-item-arrow">
+                            <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                        </div>
+                    </li>
+                </div>
+                <div class="mdui-collapse-item-body mdui-list">
+                <a href="setting.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">基本设置</a>
+                <a href="mail.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">邮件设置</a>
+                <a href="rewrite.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">伪静态设置</a>
+                </div>
+            </div>
+        </div>
+
         <div class="mdui-divider"></div>
-        <a href="setting.php">
-            <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
-                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8b8;</i>
-                <div class="mdui-list-item-content" style="font-size:15px!important">基本设置</div>
-            </li>
-        </a>
+
         <a href="user.php">
             <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
             <i class="mdui-list-item-icon mdui-icon material-icons">&#xe853;</i>
@@ -71,12 +85,7 @@
                 <div class="mdui-list-item-content" style="font-size:15px!important">插件</div>
             </li>
         </a>
-        <a href="mail.php">
-            <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
-                <i class="mdui-list-item-icon mdui-icon material-icons">&#xe158;</i>
-                <div class="mdui-list-item-content" style="font-size:15px!important">邮件</div>
-            </li>
-        </a>
+
         <div class="mdui-divider"></div>
         <a href="movepass.php">
             <li class="mdui-list-item mdui-ripple" style="font-size:15px!important">
@@ -103,7 +112,7 @@
         </div>
 
     </ul>
-    <div class="mdui-typo" style=" position: absolute;bottom:0%;   box-sizing: border-box; width: 100%;  padding: 20px 16px;">
+    <div class="mdui-typo" style="   padding: 20px 16px;">
         <h4> <small>© 2023 RapidTeam</small><br> <small>Powered by RapidTeam
             </small></h4>
 

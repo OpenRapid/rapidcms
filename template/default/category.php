@@ -17,14 +17,21 @@ $conn = mysqli_connect($data['server'], $data['dbusername'], $data['dbpassword']
 $sql = 'select * from `'.$table_name .'` WHERE categoryid="'.$cid.'"  ORDER BY time DESC';
 $res = mysqli_query($conn, $sql);
 $colums = mysqli_num_fields($res);
+echo '<div class="item-list mdui-card mdui-card-shadow">';
 while ($row = mysqli_fetch_row($res)) {
-    echo '<div class="item-list mdui-card mdui-card-shadow">';
-    echo '   <a class="mc-list-item" href="../../../../article/?id='.$row[0].'">';
+
+    if ($data_index["rewrite"] == "true") {
+        echo '   <a class="mc-list-item" href="/a/'.$row[0].'">';
+    } else {
+        echo '   <a class="mc-list-item" href="../../../../article/?id='.$row[0].'">';
+    }
+   
     echo '    <div class="mc-user-popover"><i class="mdui-list-item-icon mdui-icon material-icons">description</i></div>';
     echo '   <div class="title mdui-text-color-theme-text">'.$row[1].'</div><div class="content mdui-text-color-theme-secondary">';
-    echo '   <div class="snippet">'.$row[3].'  </div></div></a></div>';
+    echo '   <div class="snippet">'.$row[3].'  </div></div></a>';
 
 }
+        echo "</div>";
 ?>
     
                        

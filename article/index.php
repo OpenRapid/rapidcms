@@ -9,6 +9,10 @@ include("../template/" . $data_index["template"] . "/article.php");
 include('../template/' . $data_index["template"] . '/footer.php');
 $file = scandir("../plugin");
 for ($i = 2; $i < count($file); $i++) {
-    include("../plugin/" . $file[$i] . "/index.php");
+    $json_string = file_get_contents('../plugin/' . $file[$i] . "/version.json");
+    $row = json_decode($json_string, true);
+    if ($row["use"] == true) {
+        include("../plugin/" . $file[$i] . "/index.php");
+    }
 }
 include("../resource/foot-message.php");
