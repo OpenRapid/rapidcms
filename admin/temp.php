@@ -53,7 +53,7 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
             font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
-    <div class="medium" style=" text-align:center;">
+    <div style=" position:  relative;left:25%;top:10%">
 
 
         <div class="mdui-card" style="width:600px">

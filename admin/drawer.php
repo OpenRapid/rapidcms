@@ -1,6 +1,4 @@
-<div class="mdui-divider" style="    position: relative;
-    left: -30%;width:9999px
-    "></div>
+
 <div style="color:black;" class="mdui-drawer mdui-drawer-open mc-drawer" id="drawer">
     <ul class="mdui-list">
         <a href="index.php">
@@ -22,6 +20,7 @@
                 </div>
                 <div class="mdui-collapse-item-body mdui-list">
                 <a href="setting.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">基本设置</a>
+                <a href="server.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">服务设置</a>
                 <a href="mail.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">邮件设置</a>
                 <a href="rewrite.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">伪静态设置</a>
                 </div>
@@ -68,6 +67,7 @@
                 <div class="mdui-collapse-item-body mdui-list">
                 <a href="article.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">查看文章</a>
                 <a href="article-add.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">新增文章</a>
+                <a href="tool.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">小组件</a>
                 </div>
             </div>
         </div>

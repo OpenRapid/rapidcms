@@ -6040,3 +6040,28 @@ body.mdui-loaded .mdui-drawer {
         padding-left: 16px
     }
 }
+.r-menu {
+    width: 32px!important;
+    min-width: 32px!important;
+    height: 32px!important;
+    min-height: 32px!important;
+    color: #212121;
+    padding: 0;
+    line-height: 32px;
+    border-radius:50px;
+    opacity: 0.6;
+    -webkit-box-shadow: inset 0 0 0 1px transparent;
+    box-shadow: inset 0 0 0 1px transparent;
+
+}
+.r-menu-square {
+    width:30px!important;
+    min-width: 30px!important;
+    height: 30px!important;
+    min-height: 30px!important;
+    padding: 0;
+    line-height: 30px;
+    -webkit-box-shadow: inset 0 0 0 1px transparent;
+    box-shadow: inset 0 0 0 1px transparent;
+
+}

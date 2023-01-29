@@ -23,14 +23,14 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
     Header("Location: login.php"); 
 }
 $data1 = array();
-if($_POST["rewrite"]=="on"){
-    $data1['rewrite'] = "true";
+if($_POST["close"]=="on"){
+    $data1['close'] = "true";
 }else{
-    $data1['rewrite'] = "false";
+    $data1['close'] = "false";
 }
 $data1['template'] = $data_index["template"];
 $data1['version'] = $data_index["version"];
-$data1['close'] = $data_index["close"];
+$data1['rewrite'] = $data_index["rewrite"];
 
 $json_string1 = json_encode($data1);
 $filename1 = '../resource/config/index.json';

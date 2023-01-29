@@ -20,9 +20,8 @@ $pass = mysqli_fetch_row($result);
 $pa = $pass[0];
 
 if ($_COOKIE["admin"] != encode('admin', $pa)) {
-    Header("Location: ./login.php");
+    Header("Location: login.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -41,38 +40,48 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
     
 </head>
 
-<body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-deep-purple mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
+<body class=" mdui-appbar-with-toolbar mdui-theme-accent-deep-purple mdui-theme-primary-deep-purple mdui-text-color-white mdui-drawer-body-left" style="--color-primary:79, 55, 139; --color-accent: 79, 55, 139;">
     <div class="mdui-toolbar mdui-color-theme mdui-text-color-white mdui-appbar mdui-appbar-fixed mdui-headroom">
         <button class="drawer mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></button>
         <span class="mdui-typo-title">RapidCMS 管理后台</span>
     </div>
 
     <? include("drawer.php"); ?>
-
     <style>
         * {
             font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
-    <div id="page-index" class="mdui-container ">
+    <div style="    position: absolute;left: 60%;top:10%;text-align:center;    transform: translateX(-50%  );">
 
-        <div class="banner " style=" position:  relative;transform: translateY(25%);">
 
-            <h1 >Rapid<strong style="color:#4527A0;">&nbsp;CMS</strong></h1>
+        <div class="mdui-card" style="width:900px">
 
-            <div class="meta">欢迎使用RapidCMS,简单好用的官网CMS系统</div>
-            <div class="actions " ><a href="https://www.yuque.com/rapid/cms" class="mdui-btn mdui-ripple" target="_blank" style="color:#4527A0!important;border: 1px solid #4527A0!important;">官方文档</a><a href="https://github.com/codewyx/rapidcms" class="mdui-btn mdui-ripple" style="color:#4527A0!important;border: 1px solid #4527A0!important;">GITHUB</a></div>
-    
-            <div class="more-meta mdui-typo"><span class="current">
-                当前版本：V<? echo $data_index["version"]; ?>
-
-    </div> </div>
-
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title" style="font-size:30px">网站服务设置</div>
+            </div>
+            <form method="post" action="run-close.php">
+            <div class="mdui-card-content" style="font-size:15px;text-align:left">
+            <label class="mdui-switch">
+                            启用网页维护&nbsp;&nbsp;&nbsp;
+                            <input <?
+                                    if ($data_index["close"]  == "true") {
+                                        echo " checked='true'";
+                                    }
+                                    ?> name="close" type="checkbox" />
+                            <i class="mdui-switch-icon"></i>
+                        </label> 
+                        <br> <br>
+                        <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent">确认</button>
+                  
+            </div>
+            </form>
+        </div>
+        <br>
     </div>
 
     <script src="../../../../../../resource/js/mtu.min.js"></script>
     <script src="../../../../../../resource/js/mdui.min.js"></script>
-
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 include("../resource/variable.php");
 $json_string = file_get_contents('../' . $servers["lockurl"]);
 $data_json = json_decode($json_string, true);
-if ($data_json["lock"] == "install") {
+if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
     Header("Location: already.php");
 }
 ?>

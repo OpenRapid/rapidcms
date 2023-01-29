@@ -2,7 +2,7 @@
 include("../resource/variable.php");
 $json_string = file_get_contents('../' . $servers["lockurl"]);
 $data_json = json_decode($json_string, true);
-if ($data_json["lock"] == "install") {
+if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
     Header("Location: already.php");
 }
 ?>
@@ -113,13 +113,13 @@ if ($data_json["lock"] == "install") {
                                     if ($cone) {
                                         echo "<br>&nbsp;&nbsp;&nbsp;7、表 RapidCMSCategory 创建成功";
                                         $sqlz1 = 'CREATE TABLE `rapidcmschat` (
-                                            `id` char(10) COLLATE utf8_unicode_ci PRIMARY KEY,
-                                            `people` char(100) COLLATE utf8_unicode_ci NOT NULL,
-                                            `content` mediumtext COLLATE utf8_unicode_ci NOT NULL,
-                                            `goodnum` int(10) COLLATE utf8_unicode_ci NOT NULL,
+                                            `id` char(10) COLLATE utf8mb4_unicode_ci PRIMARY KEY,
+                                            `people` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+                                            `content` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+                                            `goodnum` int(10) COLLATE utf8mb4_unicode_ci NOT NULL,
                                             `time` datetime NOT NULL,
-                                            `articleid` char(10) COLLATE utf8_unicode_ci NOT NULL
-                                          ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;';
+                                            `articleid` char(10) COLLATE utf8mb4_unicode_ci NOT NULL
+                                          ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;';
                                         $cone1 = mysqli_query($link, $sqlz1);
                                         if ($cone1) {
                                             echo "<br>&nbsp;&nbsp;&nbsp;8、表 RapidCMSChat 创建成功";

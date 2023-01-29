@@ -1,3 +1,3 @@
 <?php
-    Header("Location:setp1.php");
+    Header("Location:./setp1.php");
     ?>

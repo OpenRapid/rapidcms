@@ -2,7 +2,7 @@
 include("../resource/variable.php");
 $json_string = file_get_contents('../' . $servers["lockurl"]);
 $data_json = json_decode($json_string, true);
-if ($data_json["lock"] == "install") {
+if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
     Header("Location: already.php");
 }
 ?>
@@ -77,16 +77,16 @@ if ($data_json["lock"] == "install") {
 
                             <?php
                             $install_check = 0;
-                            if (PHP_MAJOR_VERSION >= 5) {
+                            if (PHP_MAJOR_VERSION >= 5&&PHP_MAJOR_VERSION < 8) {
                                 echo '<tr><td><i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">check_circle</i>';
                                 echo "</td><td>PHP版本";
-                                echo "</td><td><font style='color:#888888'>>=5</font>";
+                                echo "</td><td><font style='color:#888888'>>=5且<8</font>";
                                 echo "</td><td>" . PHP_MAJOR_VERSION . "</td></tr>";
                                 $install_check = $install_check + 1;
                             } else {
                                 echo '<tr><td><i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">remove_circle</i>';
                                 echo "</td><td>PHP版本";
-                                echo "</td><td><font style='color:#888888'>>=5</font>";
+                                echo "</td><td><font style='color:#888888'>>=5且<8</font>";
                                 echo "</td><td>" . PHP_MAJOR_VERSION . "</td></tr>";
                             }
                             if (extension_loaded('fileinfo')) {

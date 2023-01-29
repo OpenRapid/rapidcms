@@ -23,18 +23,22 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
     Header("Location: login.php"); 
 }
 $data1 = array();
-if($_POST["rewrite"]=="on"){
-    $data1['rewrite'] = "true";
+if($_POST["tool"]=="on"){
+    $data1['tool'] = "true";
 }else{
-    $data1['rewrite'] = "false";
+    $data1['tool'] = "false";
 }
-$data1['template'] = $data_index["template"];
-$data1['version'] = $data_index["version"];
-$data1['close'] = $data_index["close"];
+$data1['kind'] = $_POST["kind"];
+if ($_POST["kind"] == "one") {
+    $data1['content'] ='<center><p id="hitokoto"><a href="#" id="hitokoto_text">获取中...</a></p></center><script>fetch(\'https://v1.hitokoto.cn\').then(response => response.json()).then(data => {const hitokoto = document.querySelector(\'#hitokoto_text\');hitokoto.href = \'#\';hitokoto.innerText = data.hitokoto;}).catch(console.error)</script>';
+} else {
+    $data1['content'] = $_POST["content"];
+}
+
 
 $json_string1 = json_encode($data1);
-$filename1 = '../resource/config/index.json';
+$filename1 = '../resource/config/tool.json';
 $fp1 = fopen($filename1, "w");
 $len1 = fwrite($fp1, $json_string1);
 fclose($fp1);
-sendalert("修改成功！");
+echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=\"tool.php\"</script>";
