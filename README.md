@@ -49,10 +49,9 @@ MySQL 存在于服务器
 
 
 
-## Update - 更新日志
-[点击查看](https://www.yuque.com/rapid/cms/lbb0budyc9v8a0ss)
-
-
-
-## Template - 模板
-[点击查看](https://www.yuque.com/rapid/cms/zrvwswxpbexm3yvu)
+## Thanks - 鸣谢
+- MDUI
+- MTU
+- MDClub-Editor
+- Jquery
+- 以上均使用MIT许可证，本项目已继承。
