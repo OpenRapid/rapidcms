@@ -1,5 +1,7 @@
 <?php
+//获取变量库
 include("variable.php");
+//解析json连接数据库
 $json_string = file_get_contents('../install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 header("Content-type:text/html;charset=utf-8");
@@ -7,7 +9,7 @@ $link = mysqli_connect($dataxxx['server'], $dataxxx['dbusername'], $dataxxx['dbp
 $goto = "../../../../../../index.php";
 $name = $_GET["username"];
 
-
+//编写SQL语句并运行
 $str = "select count(*) from `rapidcmsuser` where username=" . "'" . "$name" . "'";
 $result = mysqli_query($link, $str);
 $pass = mysqli_fetch_row($result);
@@ -21,7 +23,7 @@ if ($pa == 1) {
     echo "<script type=" . "\"" . "text/javascript" . "\"" . ">" . "window.location=" . "\"" . $goto . "\"" . "</script>";
     exit;
 }
-
+//发送邮件
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

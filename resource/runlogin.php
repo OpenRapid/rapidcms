@@ -1,16 +1,19 @@
 <?php
+//禁用报错
 error_reporting(0);
+//解析json连接数据库
 header("Content-type:text/html;charset=utf-8");
 include("../resource/variable.php");
 $json_string = file_get_contents('../install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 $link = mysqli_connect($dataxxx['server'], $dataxxx['dbusername'], $dataxxx['dbpassword']);
-if($_GET["goto"]!="")
-{
-      $goto=$_GET["goto"];
-}else{
-      $goto="../../../../../../index.php";
+//解析位置并传输
+if ($_GET["goto"] != "") {
+      $goto = $_GET["goto"];
+} else {
+      $goto = "../../../../../../index.php";
 }
+//获取是否登陆
 function encode($string = '', $skey = 'cxphp')
 {
       $strArr = str_split(base64_encode($string));
@@ -32,6 +35,7 @@ if ($link) {
                   sendalert("请填写正确的信息");
                   exit;
             }
+            //编写SQL语句并运行
             $str = "select password from `rapidcmsuser` where username=" . "'" . "$name" . "'";
             $str1 = "select yhxx from `rapidcmsuser` where username=" . "'" . "$name" . "'";
             $result1 = mysqli_query($link, $str1);
@@ -43,12 +47,13 @@ if ($link) {
             $password11 = md5(sha1(md5($password)));
             if ($pa == $password11) {
 
-
+                  //设置Cookie，直接返回
                   setcookie("user", encode($name, $password11), time() + 3600000, '/');
                   setcookie("name", $name, time() + 3600000, '/');
                   sleep(2);
                   sendalert("登录成功");
-             } else {
-                  sendalert("登录失败");   }
+            } else {
+                  sendalert("登录失败");
+            }
       }
 }

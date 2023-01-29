@@ -1,4 +1,5 @@
 <?php
+//返回窗口
 function sendalert($content){
   echo "
   <style>
@@ -32,6 +33,7 @@ function sendalert($content){
 
 $servers["lockurl"] = "install/install-config/install.json";
 define('BASE_PATH',str_replace('\\','/',realpath(dirname(__FILE__).'/'))."/");
+//在json中获取输入变量
 $json_string = file_get_contents(BASE_PATH.'/config/header.json');
 $data_header = json_decode($json_string, true);
 $json_string1 = file_get_contents(BASE_PATH.'/config/index.json');

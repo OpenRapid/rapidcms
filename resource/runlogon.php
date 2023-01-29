@@ -1,10 +1,13 @@
 <?php
+//禁用报错
 error_reporting(0);
+//解析json连接数据库
 include("../resource/variable.php");
 $json_string = file_get_contents('../install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 header("Content-type:text/html;charset=utf-8");
 $link = mysqli_connect($dataxxx['server'], $dataxxx['dbusername'], $dataxxx['dbpassword']);
+//解析位置并传输
 if ($_GET["goto"] != "") {
         $goto = $_GET["goto"];
 } else {
@@ -22,6 +25,7 @@ if ($link) {
                         exit;
                 }
                 if ($password1 == $password2) {
+                        //编写SQL语句并运行
                         $str = "select count(*) from `rapidcmsuser` where username=" . "'" . "$name" . "'";
                         $result = mysqli_query($link, $str);
                         $pass = mysqli_fetch_row($result);
@@ -32,12 +36,14 @@ if ($link) {
                         }
                         $jhzt = "user";
                         $password1 = md5(sha1(md5($password1)));
+                        //编写SQL语句并运行
                         $sql = "insert into `rapidcmsuser` values(" . "\"" . "$name" . "\"" . "," . "\"" . "$password1" . "\"" . "," . "\"" . "$jhzt" . "\"" . ")";
                         //echo"$sql";
                         mysqli_query($link, $sql);
                         mysqli_error($link);
                         $close = mysqli_close($link);
                         if ($close) {
+                                //直接返回
                                 sendalert("注册成功！");
                         }
                 } else {

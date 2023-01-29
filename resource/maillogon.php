@@ -1,12 +1,16 @@
 <?php
+//禁用报错
 error_reporting(0);
+//解析json连接数据库
 $json_string = file_get_contents('../install/sql-config/sql.json');
 $dataxxx = json_decode($json_string, true);
 header("Content-type:text/html;charset=utf-8");
 $link = mysqli_connect($dataxxx['server'], $dataxxx['dbusername'], $dataxxx['dbpassword']);
 include("../resource/variable.php");
+//解析位置并传输
 $goto = "../../../../../../index.php";
 
+//编写SQL语句并运行
 if ($link) {
     $select = mysqli_select_db($link, $dataxxx['dbname']);
     if ($select) {
@@ -25,12 +29,13 @@ if ($link) {
         $jhzt = "user";
 
         $sql = "insert into `rapidcmsuser` values(" . "\"" . "$name" . "\"" . "," . "\"" . "$password1" . "\"" . "," . "\"" . "$jhzt" . "\"" . ")";
-        //echo"$sql";
+
         mysqli_query($link, $sql);
-        // mysqli_error($link);
+
         $close = mysqli_close($link);
         if ($close) {
+            //直接返回
             sendalert("注册成功");
-  }
+        }
     }
 }
