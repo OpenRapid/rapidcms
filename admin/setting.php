@@ -60,11 +60,15 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
                 <div class="mdui-card-primary-title" style="font-size:30px">基本设置</div>
             </div>
             <form method="post" action="run-setting.php">
-                <m-scrollbar style="height: 620px;width:900px">
+                <m-scrollbar style="height: 720px;width:900px">
                     <div class="mdui-card-content" style="font-size:15px;text-align:left">
                         <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
                             <label class="mdui-textfield-label">网站名称</label>
                             <input class="mdui-textfield-input" name="title" type="text" value="<? echo $data_header["title"]; ?>" required="">
+                        </div>
+                        <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
+                            <label class="mdui-textfield-label">版权信息</label>
+                            <input class="mdui-textfield-input" name="con" type="text" value="<? echo $data_header["con"]; ?>" required="">
                         </div>
                         <div class="mdui-textfield mdui-textfield-floating-label mdui-textfield-has-bottom ">
                             <label class="mdui-textfield-label">标签页标题</label>

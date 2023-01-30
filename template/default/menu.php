@@ -96,7 +96,7 @@
 
         </ul>
         <div class="mdui-typo" style=" position: absolute;bottom:0%;   box-sizing: border-box; width: 100%;  padding: 16px 10px;">
-            <h4> <small>© 2023 RapidTeam</small><br> <small>Powered and Theme by RapidTeam
+            <h4> <small><? echo $data_header["con"]; ?></small><br> <small>Powered and Theme by RapidTeam
                 </small></h4>
         </div>
     </div>

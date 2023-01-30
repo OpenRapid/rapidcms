@@ -54,6 +54,7 @@ if (isImg($fileInfo['tmp_name']))
   $data1['description'] = $data_header["description"];
   $data1['keywords'] = $data_header["keywords"];
   $data1['introduce'] = $data_header["introduce"];
+  $data1['con'] = $data_header["con"];
   $json_string1 = json_encode($data1);
   $filename1 = '../resource/config/header.json';
   $fp1 = fopen($filename1, "w");

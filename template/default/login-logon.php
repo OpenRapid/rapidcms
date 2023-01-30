@@ -1,4 +1,4 @@
-<div id="login" class="mc-account mc-login mdui-dialog " style="z-index:-999;display: block; top: 150.104px; height: 540.792px;">
+<div id="login" class="mc-account mc-login mdui-dialog " style="overflow:hidden;z-index:-999;display: block; top: 150.104px; height: 540.792px;">
 <button class="mdui-btn mdui-btn-icon close" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
     <div class="mdui-dialog-title">登录</div>
 
@@ -16,7 +16,7 @@
 </div>
 
 
-<div id="logon" class="mc-account  mc-register mdui-dialog " style="z-index:-998;display: block; top: 150.104px; height: 540.792px;">
+<div id="logon" class="mc-account  mc-register mdui-dialog " style="overflow:hidden;z-index:-998;display: block; top: 150.104px; height: 540.792px;">
 <button class="mdui-btn mdui-btn-icon close" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
     <div class="mdui-dialog-title">注册</div>
     <?php
