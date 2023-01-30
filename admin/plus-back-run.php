@@ -129,7 +129,7 @@ $filename=realpath($name);
 Header( "Content-type: application/octet-stream ");
 Header( "Accept-Ranges: bytes ");
 Header( "Accept-Length: " .filesize($filename));
-header( "Content-Disposition: attachment; filename= rapidcms_" . $ran . ".backup");
+header( "Content-Disposition: attachment; filename= rapidcms_" . $ran . ".zip");
 echo file_get_contents($filename);
 readfile($filename);
 }
