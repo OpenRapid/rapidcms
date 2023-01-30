@@ -42,7 +42,7 @@ if (isImg($fileInfo['tmp_name']))
   $filePath = $fileInfo['tmp_name'];
   //$name = iconv('utf-8', 'gb2312', $filename);
   $str = rand();
-  $path1 = "update/upload_" . md5($str) . "." . $pathname;
+  $path1 = "upload/upload_" . md5($str) . "." . $pathname;
   $path = "../" . $path1;
   move_uploaded_file($filePath, $path);
 

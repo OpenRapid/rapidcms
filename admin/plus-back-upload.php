@@ -1,18 +1,19 @@
 <?php
+require_once('pclzip.lib.php');
 $fileInfo=$_FILES['file'];
 $name=$fileInfo['name'];
 $pathname = pathinfo($name)["extension"];
 $filename =  pathinfo($name, PATHINFO_FILENAME); 
 $filePath=$fileInfo['tmp_name'];
-//$name = iconv('utf-8', 'gb2312', $filename);
 $str=rand(); 
-
-$path="../upload/upload_".md5($str).".".$pathname;
+$dir1 = 'backzip';
+mkdir($dir1);
+$path="./backzip/backup.zip";
 move_uploaded_file($filePath,$path);
-echo json_encode([
-  "code" => 0,
-  "data" => [
-    "url" => $path,
-    "name" => $name
-  ]
- ]);
+
+
+$rands = rand();
+
+$zip = new PclZip("./backzip/backup.zip");
+$result = $zip->extract(PCLZIP_OPT_PATH, "./backzip/");
+?>

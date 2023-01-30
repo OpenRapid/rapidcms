@@ -7,6 +7,12 @@ include("menu.php") ?>
     }
 </style>
 
+<m-card class="medium"  style="min-width:800px!important;top:20%!important;display:none" theme="outlined">
+  <div slot="title" style="color:black;">📣测试测试</div>
+ 
+  </div>
+
+</m-card>
 <div class="medium" style=" text-align:center;display: flex;gap: 47px;">
     <img style="Border-radius:10px" width="200px" src="../../../<? echo $data_header["icon"]; ?>">
     <div>

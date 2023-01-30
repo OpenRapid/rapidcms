@@ -10,9 +10,9 @@
         <div class="mdui-collapse" mdui-collapse>
             <div class="mdui-collapse-item">
                 <div class="mdui-collapse-item-header">
-                    <li class="mdui-collapse-item-header mdui-list-item mdui-ripple" style="font-size:15px!important">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8b8;</i>
-                        <div class="mdui-list-item-content" style="font-size:15px!important">设置</div>
+                    <li class="mdui-collapse-item-header mdui-list-item mdui-ripple" style="font-size:15px!important">    
+                    <i class="mdui-list-item-icon mdui-icon material-icons">&#xe24d;</i>
+                        <div class="mdui-list-item-content" style="font-size:15px!important">配置</div>
                         <div class="mdui-collapse-item-arrow">
                             <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
                         </div>
@@ -97,7 +97,7 @@
             <div class="mdui-collapse-item">
                 <div class="mdui-collapse-item-header">
                     <li class="mdui-collapse-item-header mdui-list-item mdui-ripple" style="font-size:15px!important">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">&#xe147;</i>
+                    <i class="mdui-list-item-icon mdui-icon material-icons">&#xe8b8;</i>
                         <div class="mdui-list-item-content" style="font-size:15px!important">系统</div>
                         <div class="mdui-collapse-item-arrow">
                             <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
@@ -106,6 +106,7 @@
                 </div>
                 <div class="mdui-collapse-item-body mdui-list">
                 <a href="update.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">检查更新</a>
+                <a href="plus.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">高级功能</a>
                 <a href="about.php" style="padding-left: 72px;" class="mdui-list-item mdui-ripple">关于</a>
                 </div>
             </div>

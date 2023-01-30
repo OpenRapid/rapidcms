@@ -76,7 +76,7 @@ file_put_contents("../plugin/".$_GET["name"].".zip", file_get_contents("http://c
             
                 require_once('pclzip.lib.php');
 
-                $zip = new PclZip("../plugin/" .$_GET["name"].".zip");
+                $zip = new PclZip("../plugin/".$_GET["name"].".zip");
                 $result = $zip->extract(PCLZIP_OPT_PATH, "../plugin/");
                 if ($result == 0) {
                     echo '<br>输入错误';

@@ -30,13 +30,13 @@ if($_POST["tool"]=="on"){
 }
 $data1['kind'] = $_POST["kind"];
 if ($_POST["kind"] == "one") {
-    $data1['content'] = `<center><p id="hitokoto"><a style="color:#000000" href="#" id="hitokoto_text">获取中...</a></p></center><script>fetch('https://v1.hitokoto.cn').then(response => response.json()).then(data => {const hitokoto = document.querySelector('#hitokoto_text');hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid;
+    $data1['content'] = '<center><p id="hitokoto"><a style="color:#000000" href="#" id="hitokoto_text">获取中...</a></p></center><script>fetch(\'https://v1.hitokoto.cn\').then(response => response.json()).then(data => {const hitokoto = document.querySelector(\'#hitokoto_text\');hitokoto.href = \'https://hitokoto.cn/?uuid=\' + data.uuid;
         if (data.from_who == null) {
         hitokoto.innerHTML = "「 " + data.hitokoto + " 」<br>——" + data.from;
         }else {
         hitokoto.innerHTML = "「 " + data.hitokoto + " 」<br>——" + data.from_who + "「" + data.from + "」"
         }}).catch(console.error)
-        </script>`;
+        </script>';
 } else {
     $data1['content'] = $_POST["content"];
 }
