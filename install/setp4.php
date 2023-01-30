@@ -143,8 +143,8 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                                                     $key < $strCount && $strArr[$key] .= $value;
                                                 return str_replace(array('=', '+', '/'), array('O0O0O', 'o000o', 'oo00o'), join('', $strArr));
                                             }
-
-                                            $passwd = encode('admin', $_POST['password']);
+                                  
+                                            $passwd = encode('admin', md5(sha1(md5($_POST['password']))));
                                             $domm = $_SERVER['SERVER_NAME'];
                                             echo '<script>
                                                 $.ajax({
