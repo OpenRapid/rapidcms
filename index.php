@@ -10,7 +10,7 @@ $data_json = json_decode($json_string, true);
 //判断是否安装
 if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
     if ($data_index["close"] == "true") {
-        echo '网页正在维护中！';
+        Header("Location: resource/close.php");
     } else {
         //引入系统的顶部<head>内容
         include("resource/head-message.php");

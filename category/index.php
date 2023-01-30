@@ -3,7 +3,7 @@
 include("../resource/variable.php");
 include("../resource/function.php"); 
 if ($data_index["close"] == "true") {
-    echo '网页正在维护中！';
+    Header("Location: ../resource/close.php");
 } else {
     //设置分类的id变量，方便模板回去数据
     $cid = $_GET["id"];
