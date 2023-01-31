@@ -1,4 +1,7 @@
 <?php
+deldir('./backzip/');
+rmdir('./backzip/');
+
 include("../resource/variable.php");
 function encode($string = '', $skey = 'cxphp')
 {
@@ -117,39 +120,47 @@ $dir1 = 'backzip';
 mkdir($dir1);
 chmod($dir1, 0755);
 copydir("../resource/config", $dir . "config");
-require_once('pclzip.lib.php');
-$rands = rand();
-$zip = new PclZip("./backzip/backup.zip");
-$result = $zip->create($dir, PCLZIP_OPT_ADD_PATH, "./");
 
 
-function downfile($name,$ran)
+
+    
+/**
+ * 压缩整个文件夹为zip文件
+ */
+function make_zip_file_for_folder ($zip_path = '', $folder_path = '') {
+    $rootPath = realpath($folder_path);
+    $zip = new ZipArchive();
+    $zip->open($zip_path, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($rootPath),
+        RecursiveIteratorIterator::LEAVES_ONLY
+    );
+    foreach ($files as $name => $file)
+    {
+        if (!$file->isDir())
+        {
+            $filePath = $file->getRealPath();
+            $relativePath = substr($filePath, strlen($rootPath) + 1);
+
+            $zip->addFile($filePath, $relativePath);
+        }
+    }
+ 
+    // Zip archive will be created only after closing object
+    $zip->close();
+}
+make_zip_file_for_folder("./backzip/backup.zip","./backup/");
+
+function downfile($name, $ran)
 {
-$filename=realpath($name); 
-Header( "Content-type: application/octet-stream ");
-Header( "Accept-Ranges: bytes ");
-Header( "Accept-Length: " .filesize($filename));
-header( "Content-Disposition: attachment; filename= rapidcms_" . $ran . ".zip");
-echo file_get_contents($filename);
-readfile($filename);
+    $filename = realpath($name);
+    Header("Content-type: application/octet-stream ");
+    Header("Accept-Ranges: bytes ");
+    Header("Accept-Length: " . filesize($filename));
+    header("Content-Disposition: attachment; filename= rapidcms_" . $ran . ".zip");
+    echo file_get_contents($filename);
+    readfile($filename);
 }
 deldir($dir);
 rmdir($dir);
-downfile("./backzip/backup.zip",$ran12);
-Header("Location:plus.php"); 
-$fp=fopen("./backzip/backup_" . $ran12 . ".zip","r");
-$buffer=1024; 
-$file_count=0;
-while(!feof($fp) && $file_count<filesize($filename)){ 
-$file_con=fread($fp,$buffer); 
-$file_count+=$buffer; 
-} 
-fclose($fp);
-
-if($file_count >=filesize($filename))
-{
-
-    deldir('./backzip/');
-    rmdir('./backzip/');
-
-}
+downfile("./backzip/backup.zip", $ran12);

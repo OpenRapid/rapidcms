@@ -96,7 +96,8 @@
 
         </ul>
         <div class="mdui-typo" style=" position: absolute;bottom:0%;   box-sizing: border-box; width: 100%;  padding: 16px 10px;">
-            <h4> <small><? echo $data_header["con"]; ?></small><br> <small>Powered and Theme by RapidTeam
+            <h4> <small><? echo $data_header["con"]; ?></small><br> <small>Powered and Theme by 
+                <font color="#4169E1" style="cursor:pointer" onclick="window.open('https://yuque.com/rapid/cms')">RapidTeam</font>
                 </small></h4>
         </div>
     </div>

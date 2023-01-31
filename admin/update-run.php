@@ -48,49 +48,49 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
 
     <? include("drawer.php"); ?>
 
+
     <style>
         * {
             font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
-    <div style=" position:  relative;left:15%">
-    <br><br>
-        <div class="mdui-card" style="width:70%;height:300px; ">
-            <div class="mdui-card-primary" style="text-align:center;">
-                <div class="mdui-card-primary-title" style="font-size:30px">版本更新</div>
-            </div>
+    <div class="medium" style=" text-align:center;display: flex">
+
+        <div>
             <div style="color:black;font-size: 20px;" class="mdui-typo">
-                <h5>&nbsp;&nbsp;&nbsp;当前版本：Dev.<? echo $data_index["version"]; ?></h5>
-                <h5 id="contents">&nbsp;&nbsp;&nbsp;正在获取中，请稍后……</h5>
-                &nbsp;&nbsp;&nbsp;<a  id="bt1" style="display:none"><button name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">点击更新</button></a>
-                <a href="https://yuque.com/rapid/cms" id="bt2" style="display:none"><button name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">此版本为结构更新，请备份并删除数据库重新安装！</button></a>
-                   
-                <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-                <script>
-                    $.ajax({
-                        type: "POST",
-                        url: "http://38.34.253.135:35200/version/",
-                        dataType: "json",
-                        success: function(data) {
-                            console.log(data["version"]);
-                            if (data["version"] != "<? echo $data_index["version"]; ?>") {
-                                document.getElementById("contents").innerHTML = "&nbsp;&nbsp;&nbsp;当前有更新，最新版本为：Dev." + data["version"];
-                                if (data["function"] == 1) {
-                                    document.getElementById("bt1").style.display="inline";
-                                    document.getElementById("bt1").href="update-run.php?version="+data["version"];
-                                } else {
-                                    document.getElementById("bt2").style.display="inline";
-                                }
-                            } else {
-                                document.getElementById("contents").innerHTML = '&nbsp;&nbsp;&nbsp;当前为最新版本，感谢使用！';
-                            }
-                        }
-                    });
-                </script>
+                <h1 style="font-weight: bold;">版本更新</h1>
+                <h5>正在更新中，版本：<?php echo $_GET["version"]; ?> </h5>
+
+                <br>
+
+
+                <?php
+
+                $arrContextOptions = array(
+                    "ssl" => array(
+                        "verify_peer" => false,
+                        "verify_peer_name" => false,
+                    ),
+                );
+                file_put_contents("../upload/" . $_GET["version"] . ".zip", file_get_contents("http://cdn.jsdelivr.net/gh/codewyx/cmscdn/version/" . $_GET["version"] . ".zip", false, stream_context_create($arrContextOptions)));
+
+                require_once('pclzip.lib.php');
+
+                $zip = new PclZip("../upload/" . $_GET["version"] . ".zip");
+                $result = $zip->extract(PCLZIP_OPT_PATH, "../");
+                if ($result == 0) {
+                    echo '<br>更新失败';
+                    unlink("../upload/" . $_GET["version"] . ".zip");
+                } else {
+                    echo '<br>更新成功';
+                    unlink("../upload/" . $_GET["version"] . ".zip");
+                }
+
+                ?>
             </div>
+
         </div>
     </div>
-
 
     <script src="../../../../../../resource/js/mtu.min.js"></script>
     <script src="../../../../../../resource/js/mdui.min.js"></script>
