@@ -69,7 +69,7 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
                 <script>
                     $.ajax({
                         type: "POST",
-                        url: "http://38.34.253.135:35200/version/",
+                        url: "http://38.34.253.135:35200/version/?time="+Date.now()/1000,
                         dataType: "json",
                         success: function(data) {
                             console.log(data["version"]);
