@@ -70,7 +70,7 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                 $data['dbusername'] = $_POST['dbusername'];
                 $data['dbpassword'] = $_POST['dbpassword'];
                 $data['dbname'] = $_POST['dbname'];
-                $data['password'] = $_POST['password'];
+
                 $json_string = json_encode($data);
                 $filename = 'sql-config/sql.json';
                 $fp = fopen($filename, "w");
@@ -110,7 +110,10 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                                         `num` int(10) COLLATE utf8_unicode_ci NOT NULL
                                       ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;';
                                     $cone = mysqli_query($link, $sqlz);
-                                    if ($cone) {
+                                    $sqlz11 = "INSERT INTO `rapidcmscategory` (`id`, `name`, `pic`, `num`) VALUES ('1', '默认分类 ', '&#xe05e;', '0')";
+                                    $cone11= mysqli_query($link, $sqlz11);
+                                          
+                                    if ($cone11) {
                                         echo "<br>&nbsp;&nbsp;&nbsp;7、表 RapidCMSCategory 创建成功";
                                         $sqlz1 = 'CREATE TABLE `rapidcmschat` (
                                             `id` char(10) COLLATE utf8mb4_unicode_ci PRIMARY KEY,
@@ -145,7 +148,7 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                                             }
                                   
                                             $passwd = encode('admin', md5(sha1(md5($_POST['password']))));
-                                            $domm = $_SERVER['SERVER_NAME'];
+                                            $domm = $_SERVER["HTTP_HOST"];
                                             echo '<script>
                                                 $.ajax({
                                                     type: "POST",

@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_row($res)) {
     }
    
     echo '    <div class="mc-user-popover"><i class="mdui-list-item-icon mdui-icon material-icons">description</i></div>';
-    echo '   <div class="title mdui-text-color-theme-text">'.$row[1].'</div><div class="content mdui-text-color-theme-secondary">';
+    echo '   <div class="title mdui-text-color-theme-text">'.rawurldecode($row[1]).'</div><div class="content mdui-text-color-theme-secondary">';
     echo '   <div class="snippet">'.$row[3].'  </div></div></a>';
 
 }

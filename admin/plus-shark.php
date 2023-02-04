@@ -47,50 +47,37 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
     </div>
 
     <? include("drawer.php"); ?>
-
     <style>
         * {
             font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
-    <div style=" position:  relative;left:15%">
     <br><br>
+    <div style=" position:  relative;left:15%">
         <div class="mdui-card" style="width:70%;height:300px; ">
             <div class="mdui-card-primary" style="text-align:center;">
-                <div class="mdui-card-primary-title" style="font-size:30px">版本更新</div>
+                <div class="mdui-card-primary-title" style="font-size:30px">从SharkCMS迁移数据</div>
             </div>
-            <div style="color:black;font-size: 20px;" class="mdui-typo">
-                <h5>&nbsp;&nbsp;&nbsp;当前版本：Dev.<? echo $data_index["version"]; ?></h5>
-                <h5 id="contents">&nbsp;&nbsp;&nbsp;正在获取中，请稍后……</h5>
-                &nbsp;&nbsp;&nbsp;<a  id="bt1" style="display:none"><button name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">点击更新</button></a>
-                <a href="https://yuque.com/rapid/cms" id="bt2" style="display:none"><button name="sub" class="mdui-btn mdui-btn-raised mdui-color-theme action-btn">此版本为结构更新，请备份并删除数据库重新安装！</button></a>
-                   
-                <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-                <script>
-                    $.ajax({
-                        type: "POST",
-                        url: "https://cloud.cms.rapidwt.cn/version/?time="+Date.now()/1000,
-                        dataType: "json",
-                        success: function(data) {
-                            console.log(data["version"]);
-                            if (data["version"] != "<? echo $data_index["version"]; ?>") {
-                                document.getElementById("contents").innerHTML = "&nbsp;&nbsp;&nbsp;当前有更新，最新版本为：Dev." + data["version"];
-                                if (data["function"] == 1) {
-                                    document.getElementById("bt1").style.display="inline";
-                                    document.getElementById("bt1").href="update-run.php?version="+data["version"];
-                                } else {
-                                    document.getElementById("bt2").style.display="inline";
-                                }
-                            } else {
-                                document.getElementById("contents").innerHTML = '&nbsp;&nbsp;&nbsp;当前为最新版本，感谢使用！';
-                            }
-                        }
-                    });
-                </script>
-            </div>
+            <br>
+            <label class="mdui-textfield-label">&nbsp;&nbsp;&nbsp;选择导入方式</label>
+            &nbsp;&nbsp;&nbsp;
+            <label class="mdui-radio">
+                <input type="radio" name="group1" checked />
+                <i class="mdui-radio-icon"></i>
+                从本程序所在数据库导入
+            </label>
+
+            <label class="mdui-radio">
+                <input type="radio" name="group1" disabled />
+                <i class="mdui-radio-icon"></i>
+                从其他数据库导入（暂不支持）
+            </label>
+            <br>  <br>
+            &nbsp;&nbsp;&nbsp;<a href="plus-shark-run.php"><button name="sub" class="mdui-btn mdui-btn-raised mdui-text-color-black action-btn">一键导入文章</button></a>
+       
         </div>
     </div>
-
+    <br>
 
     <script src="../../../../../../resource/js/mtu.min.js"></script>
     <script src="../../../../../../resource/js/mdui.min.js"></script>

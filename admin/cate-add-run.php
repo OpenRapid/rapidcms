@@ -33,7 +33,7 @@ if($link)
   if($select)
   {
 
-      $str='INSERT INTO `rapidcmscategory`(`id`, `name`, `pic`, `num`) VALUES ("'.$_POST["id"].'","'.$_POST["name"].'","'.$_POST["pic"].'",'.$_POST["num"].')';
+      $str='INSERT INTO `rapidcmscategory`(`id`, `name`, `pic`, `num`) VALUES ("'.$_POST["id"].'","'.rawurlencode($_POST["name"]).'","'.$_POST["pic"].'",'.$_POST["num"].')';
 
 	  $result=mysqli_query($link,$str);
       sendalert("增加成功！");

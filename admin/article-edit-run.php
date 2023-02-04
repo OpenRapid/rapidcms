@@ -33,9 +33,9 @@ if($link)
   if($select)
   {
     $timenow = date('Y-m-d H:i:s');
-    $cont2=htmlspecialchars($_POST["content"]);
+    $cont2=rawurlencode(htmlspecialchars($_POST["content"]));
        
-    $str='  UPDATE `rapidcmspage` SET `title`="'.$_POST["title"].'",`content`="'.$cont2.'",`time`="'.$timenow.'" WHERE `id`="'.$_POST["id"].'"';
+    $str='  UPDATE `rapidcmspage` SET `title`="'.rawurlencode($_POST["title"]).'",`content`="'.$cont2.'",`time`="'.$timenow.'" WHERE `id`="'.$_POST["id"].'"';
 
 	  $result=mysqli_query($link,$str);
       sendalert("修改成功！");

@@ -25,7 +25,7 @@ function sendalert($content){
   }
   
    </script>
-   <script src='../../../../../../resource/js/mdui.min.js'></script>'></script>
+   <script src='../../../../../../resource/js/mdui.min.js'></script>
    </body>
    ";
   

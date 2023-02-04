@@ -89,7 +89,7 @@
 
                 echo '<li class="mdui-list-item mdui-ripple"> ';
                 echo '<i class="mdui-list-item-icon mdui-icon material-icons">' . $row[2] . '</i>';
-                echo '<div class="mdui-list-item-content" style="font-size:15px!important">' . $row[1] . '</div>';
+                echo '<div class="mdui-list-item-content" style="font-size:15px!important">' . rawurldecode($row[1]) . '</div>';
                 echo "</li></a>";
             }
             ?>

@@ -33,8 +33,8 @@ if($link)
   if($select)
   {
     $timenow = date('Y-m-d H:i:s');
-    $cont2=htmlspecialchars($_POST["content"]);
-      $str='INSERT INTO `rapidcmspage`(`id`, `title`, `content`, `time`, `categoryid`) VALUES ("'.$_POST["id"].'","'.$_POST["title"].'","'.$cont2.'","'.$timenow.'","'.$_POST["categoryid"].'")';
+    $cont2=rawurlencode(htmlspecialchars($_POST["content"]));
+      $str='INSERT INTO `rapidcmspage`(`id`, `title`, `content`, `time`, `categoryid`) VALUES ("'.$_POST["id"].'","'.rawurlencode($_POST["title"]).'","'.$cont2.'","'.$timenow.'","'.$_POST["categoryid"].'")';
 
 	  $result=mysqli_query($link,$str);
     sendalert("增加成功！");

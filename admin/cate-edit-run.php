@@ -33,7 +33,7 @@ if($link)
   if($select)
   {
   
-      $str='  UPDATE `rapidcmscategory` SET `name`="'.$_POST["name"].'",`pic`="'.$_POST["pic"].'",`num`='.$_POST["num"].' WHERE `id`="'.$_POST["id"].'"';
+      $str='  UPDATE `rapidcmscategory` SET `name`="'.rawurlencode($_POST["name"]).'",`pic`="'.$_POST["pic"].'",`num`='.$_POST["num"].' WHERE `id`="'.$_POST["id"].'"';
         echo $str;
 	  $result=mysqli_query($link,$str);
       sendalert("修改成功！");

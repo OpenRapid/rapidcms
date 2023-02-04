@@ -17,8 +17,8 @@
             $res = mysqli_query($conn, $sql);
             $colums = mysqli_num_fields($res);
             while ($row = mysqli_fetch_row($res)) {
-                $cont3 = htmlspecialchars_decode($row[2]);
-                echo '<div class="mdui-card mdui-card-shadow question"><h1 class="title">' . $row[1] . '</h1>';
+                $cont3 = htmlspecialchars_decode(rawurldecode($row[2]));
+                echo '<div class="mdui-card mdui-card-shadow question"><h1 class="title">' . rawurldecode($row[1]) . '</h1>';
                 echo '  <div class="mc-user-line"><div class="mc-user-popover"><span style="color:#757575">' . $row[3] . '</span>';
                 echo '  </div></div><div class="mdui-typo" style="padding: 12px 0 32px;">' . $cont3 . " </div><br>  <br>  <br></div>                ";
             }
