@@ -88,8 +88,8 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                         $conb = mysqli_query($link, $sql2);
                         if ($conb) {
                             echo "<br>&nbsp;&nbsp;&nbsp;4、表 RapidCMSAdmin 创建成功";
-                            $passwordq = md5(sha1(md5($data["password"])));
-                            $sqlx = "insert into `rapidcmsadmin` values('admin','{$passwordq}');";
+                            $passwordq = md5(sha1(md5($_POST["password"])));
+                            $sqlx = "insert into `rapidcmsadmin` values('admin','".$passwordq."');";
                             $conc = mysqli_query($link, $sqlx);
                             if ($conc) {
                                 echo "<br>&nbsp;&nbsp;&nbsp;5、表 RapidCMSAdmin 插入成功";
