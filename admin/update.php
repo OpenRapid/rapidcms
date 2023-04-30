@@ -67,6 +67,7 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
                    
                 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
                 <script>
+                    $.ajaxSetup({cache:false})
                     $.ajax({
                         type: "GET",
                         url: "https://cdn.jsdelivr.net/gh/codewyx/cmscdn/version.json",
