@@ -68,8 +68,8 @@ if ($_COOKIE["admin"] != encode('admin', $pa)) {
                 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
                 <script>
                     $.ajax({
-                        type: "POST",
-                        url: "https://cloud.cms.rapidwt.cn/version/?time="+Date.now()/1000,
+                        type: "GET",
+                        url: "https://cdn.jsdelivr.net/gh/codewyx/cmscdn/version.json",
                         dataType: "json",
                         success: function(data) {
                             console.log(data["version"]);

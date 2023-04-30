@@ -53,7 +53,7 @@ if ($_COOKIE["admin"] != encode('admin',$pa)) {
     }
 </style>
 <div class="medium" style=" text-align:center;display: flex;gap: 47px;">
-    <img style="Border-radius:10px" width="200px" src="../../../update/logo.png">
+    <img style="Border-radius:10px" width="200px" src="../../../upload/logo.png">
     <div>
         <div style="color:black;font-size: 20px;" class="mdui-typo">
             <h1 style="font-weight: bold;">RapidCMS</h1>
