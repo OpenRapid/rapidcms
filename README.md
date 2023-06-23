@@ -4,7 +4,7 @@
 <ne-h1 style="margin-top:0;">
 <ne-heading-content>
 <ne-text>🔈</ne-text>
-<ne-text style="color: rgb(29, 192, 201);font-size:28px;">欢迎使用RapidCMS！</ne-text>
+<ne-text style="color: rgb(29, 192, 201);font-size:28px;">下一代强力CMS即将上线：[点击进入](https://github.com/OpenRapid/RapidFlow)</ne-text>
 </ne-heading-content>
 </ne-h1>
 <br>
