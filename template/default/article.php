@@ -1,4 +1,9 @@
 <?php include("menu.php") ?>
+<style>
+    * {
+        font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+</style>
 <div class="mdui-container" style="margin:auto;">
 
 
@@ -27,7 +32,7 @@
             <?php
             if ($data_tool["tool"] == "true") {
                 echo '<div class="mdui-card mdui-card-shadow question"> <br>';
-                echo ' <div class="mdui-typo" style="padding: 10px;">'.$data_tool["content"].'</div><br></div><br>';
+                echo ' <div class="mdui-typo" style="padding: 10px;">' . $data_tool["content"] . '</div><br></div><br>';
             }
             ?>
             <script>

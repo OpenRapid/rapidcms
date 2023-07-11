@@ -1,4 +1,9 @@
 <?php include("menu.php") ?>
+<style>
+    * {
+        font-family: "MiSans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+</style>
 <div class="mdui-container" style="margin:auto;overflow:auto;">
 
 

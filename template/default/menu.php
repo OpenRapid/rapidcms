@@ -1,5 +1,5 @@
-<body class=" mdui-appbar-with-toolbar mdui-theme-accent-indigo mdui-theme-primary-indigo mdui-text-color-white mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
-    <div class="mdui-toolbar mdui-color-theme mdui-text-color-white mdui-appbar mdui-appbar-fixed mdui-headroom">
+<body class=" mdui-appbar-with-toolbar mdui-theme-accent-white  mdui-theme-primary-white mdui-text-color-black mdui-drawer-body-left" style="--color-primary: 63, 81, 181; --color-accent: 63, 81, 181;">
+    <div class="mdui-toolbar mdui-color-white mdui-text-color-black mdui-appbar mdui-appbar-fixed mdui-headroom">
         <button class="drawer mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: '#drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></button>
         <span class="mdui-typo-title"><? echo $data_header["title"]; ?></span>
         <div class="mdui-toolbar-spacer"></div>
