@@ -1,4 +1,5 @@
 <?php
+include("../check.php");
 function isImage($imgPath){
 if($imgPath=="jpg"||$imgPath=="png"||$imgPath=="gif"||$imgPath=="jpeg"){
 return true;
