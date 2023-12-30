@@ -1,0 +1,15 @@
+import { $ } from '../$.js';
+import { getStyle } from '../shared/css.js';
+import './each.js';
+import './hide.js';
+import './show.js';
+/**
+ * 切换元素的显示状态
+ */
+$.fn.toggle = function () {
+    return this.each((_, element) => {
+        getStyle(element, 'display') === 'none'
+            ? $(element).show()
+            : $(element).hide();
+    });
+};

@@ -1,0 +1,11 @@
+import { $ } from '../$.js';
+import './each.js';
+$.fn.removeProp = function (name) {
+    return this.each((_, element) => {
+        try {
+            // @ts-ignore
+            delete element[name];
+        }
+        catch (e) { }
+    });
+};
